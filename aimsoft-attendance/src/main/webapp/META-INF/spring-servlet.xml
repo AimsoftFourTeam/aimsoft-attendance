@@ -16,7 +16,23 @@
 	<!-- Spring mvc annotationの利用設定 -->
 	<!-- @Autowired,@Resourceを利用する場合の宣言 -->
 	<mvc:annotation-driven/>
+	<!-- 
+	<bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+  		<property name="prefix" value="/WEB-INF/html/" />
+  		<property name="suffix" value=".html" />
+  		<property name="templateMode" value="HTML5" />
+  		<property name="characterEncoding" value="UTF-8" />
+	</bean>
 
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+  		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+  		<property name="templateEngine" ref="templateEngine" />
+  		<property name="characterEncoding" value="UTF-8" />
+	</bean>
+ 	-->
 	<!-- Multipart対応 -->
 	<!-- <bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
@@ -39,9 +55,10 @@
 	★☆★ Spring Bootの場合、application.propertiesnに設定する。★☆★
 	spring.view.prefix= # MVC view prefix
 	spring.view.suffix= # ... and suffix
-	-->
+	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	   <property name="prefix" value="/WEB-INF/html/"/>
 	   <property name="suffix" value=".html"/>
 	 </bean>
+	 -->
 </beans>

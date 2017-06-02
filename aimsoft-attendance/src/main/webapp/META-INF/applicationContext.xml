@@ -15,7 +15,7 @@
 	<!-- anotationマッピングを許可 -->
 	<context:annotation-config />
 	<!-- DI Setting -->
-	<context:component-scan base-package="jp.co.aimsoft.attendance.controller" />
+	<context:component-scan base-package="jp.co.aimsoft.attendance.*" />
 
 	<!-- transactionの設定 Serviceクラスの呼び出しごとにトランザクションを設定する
 	<設定内容について>
