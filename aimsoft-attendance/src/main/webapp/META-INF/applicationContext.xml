@@ -61,21 +61,7 @@
 		トランザクションの読み取り専用フラグを指定する。
 		デフォルトはfalse(読み取り専用でない)
 	-->
-<!-- TODO 後で復活(IWAI)
-    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="*"
-				propagation="REQUIRED"
-				rollback-for="jp.co.skill.spider.exception.SystemException"
-			 />
-		</tx:attributes>
-	</tx:advice>
-	 -->
 
-<!-- TODO 後で復活(IWAI)
-	宣言的トランザクションの織り込み
-	<aop:config proxy-target-class="false">
-		<aop:advisor advice-ref="transactionAdvice" pointcut="execution(* jp.co.skill.spider..service.*(..))" />
-	</aop:config>
-	-->
+
+	<!-- 宣言的トランザクションの織り込み -->
 </beans>

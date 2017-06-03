@@ -24,7 +24,7 @@ public class UserTestController {
 	public ModelAndView mybatisTestFirstDisplay() {
 
 		ModelAndView viewable = new ModelAndView();
-		viewable.setViewName("mybatisTest");
+		viewable.setViewName("/demo1");
 
 		return viewable;
 	}
