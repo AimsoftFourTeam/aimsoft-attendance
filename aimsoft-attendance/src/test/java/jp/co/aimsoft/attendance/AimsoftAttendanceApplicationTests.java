@@ -11,6 +11,7 @@ public class AimsoftAttendanceApplicationTests {
 
 	@Test
 	public void contextLoads() {
+        //test
 	}
 
 }
