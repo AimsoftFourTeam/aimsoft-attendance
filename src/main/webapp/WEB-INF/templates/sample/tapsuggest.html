@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/reset.css"/>
+	<link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/demo.css"/>
+	<link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/TapSuggest.css" />
+	<script src="../../../resources/js/node_modules/jquery/dist/jquery.js"></script>
+	<script src="../../../resources/js/lib/tapsuggest/js/Jquery.TapSuggest.js"></script>
+  <title>初期画面</title>
+</head>
+<body>
+<div class="container">
+	<h1>TapSuggest.js(default)</h1>
+	<h2>スポーツ検索</h2>
+    <div class="formArea">
+        <form method="post" action="">
+			<div class="inputArea">
+                <input type="text" class="tsInput"></input>
+			</div>
+        </form>
+    </div>
+    <div class="tsArea"></div>
+</div>
+<script type="text/javascript">
+$(function(){
+	
+    $('.tsArea').TapSuggest({
+        tsInputElement : '.tsInput',
+        tsArrayList : ['サッカー', ['野球', 'やきゅう'], 'アメフト', 'スキー', 'バレーボール', 'ラクロス', 'ラグビー', 'バスケットボール', 'ゴルフ', 'テニス', 'バドミントン', 'ソフトボール', 'ビリヤード', 'ボウリング', ['競泳', 'きょうえい'], 'カーリング', ['卓球', 'たっきゅう'],
+                        'ドッジボール', 'ダーツ', 'フットサル', 'クリケット', 'ラケットボール', 'ロードレース', 'ハンマー投', 'アーチェリー', 'オートレース', ['競馬', 'けいば']],
+        tsRegExpAll : true
+    });
+	
+});
+</script>
+</body>
+</html>
