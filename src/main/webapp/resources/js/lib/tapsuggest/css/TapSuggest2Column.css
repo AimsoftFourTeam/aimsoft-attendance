@@ -1,0 +1,39 @@
+ul.TapSuggest{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+ul.TapSuggest:after{
+	content:"";
+	clear:both;
+	display:block;
+}
+
+ul.TapSuggest li{
+	width: 50%;
+	box-sizing: border-box;
+	float: left;
+	display: block;
+	position: relative;
+	margin-bottom: -1px;
+	padding: 10px;
+	border: 1px solid #DDD;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+}
+
+ul.TapSuggest li:nth-child(2n){
+	border-left: none;
+}
+
+ul.TapSuggest li:nth-child(-n+2){
+	margin-top: 10px;
+}
+
+ul.TapSuggest li.totch{
+	background-color: #CCC;
+}

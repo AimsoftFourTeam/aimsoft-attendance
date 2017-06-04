@@ -1,0 +1,50 @@
+.container{
+	width: 95%;
+	margin: 0 auto;
+	color: #333;
+	font-family: sans-serif;
+}
+
+h1{
+	margin: 10px 0;
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.formArea{
+	width: 100%;
+}
+
+.formArea:after{
+	content:"";
+	clear:both;
+	display:block;
+}
+
+.formArea div{
+	float: left;
+}
+
+.formArea div input{
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+.formArea div.inputArea{
+	width: 65%;
+}
+
+.formArea div.submitArea{
+	width: 35%;
+}
+
+hr{
+	margin: 20px 0;
+}
+
+h2{
+	margin: 20px 0 10px 0;
+}
