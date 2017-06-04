@@ -2,11 +2,11 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/reset.css"/>
-	<link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/demo.css"/>
-	<link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/TapSuggest.css" />
-	<script src="../../../resources/js/node_modules/jquery/dist/jquery.js"></script>
-	<script src="../../../resources/js/lib/tapsuggest/js/Jquery.TapSuggest.js"></script>
+    <link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/reset.css" data-th-href="@{/resources/js/lib/tapsuggest/css/reset.css}"/>
+	<link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/demo.css" data-th-href="@{/resources/js/lib/tapsuggest/css/demo.css}"/>
+	<link rel="stylesheet" href="../../../resources/js/lib/tapsuggest/css/TapSuggest.css" data-th-href="@{/resources/js/lib/tapsuggest/css/TapSuggest.css}" />
+	<script src="../../../resources/js/node_modules/jquery/dist/jquery.js" data-th-src="@{/resources/js/node_modules/jquery/dist/jquery.js}"></script>
+	<script src="../../../resources/js/lib/tapsuggest/js/Jquery.TapSuggest.js" data-th-src="@{/resources/js/lib/tapsuggest/js/Jquery.TapSuggest.js}"></script>
   <title>サンプル画面</title>
 </head>
 <body>
@@ -27,7 +27,7 @@ $(function(){
 	
     $('.tsArea').TapSuggest({
         tsInputElement : '.tsInput',
-        tsArrayList : ['倉田', ['kurata', 'くらた'], '岩井', '鈴木', 'バレーボール', 'ラクロス', 'ラグビー', 'バスケットボール', 'ゴルフ', 'テニス', 'バドミントン', 'ソフトボール', 'ビリヤード', 'ボウリング', ['競泳', 'きょうえい'], 'カーリング', ['卓球', 'たっきゅう'],
+        tsArrayList : ['伊藤', ['倉田', 'kurata','くらた'], '岩井', '鈴木', 'バレーボール', 'ラクロス', 'ラグビー', 'バスケットボール', 'ゴルフ', 'テニス', 'バドミントン', 'ソフトボール', 'ビリヤード', 'ボウリング', ['競泳', 'きょうえい'], 'カーリング', ['卓球', 'たっきゅう'],
                         'ドッジボール', 'ダーツ', 'フットサル', 'クリケット', 'ラケットボール', 'ロードレース', 'ハンマー投', 'アーチェリー', 'オートレース', ['競馬', 'けいば']],
         tsRegExpAll : true
     });
