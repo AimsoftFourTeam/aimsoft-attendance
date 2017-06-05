@@ -23,7 +23,14 @@
     <div class="tsArea"></div>
 </div>
 <script type="text/javascript">
+
+//demoなのでファイルの外だしはまだしない。
+
 $(function(){
+	
+	
+	//ajaxにてdataを取得しに行く
+	
 	
     $('.tsArea').TapSuggest({
         tsInputElement : '.tsInput',
@@ -31,6 +38,7 @@ $(function(){
                         'ドッジボール', 'ダーツ', 'フットサル', 'クリケット', 'ラケットボール', 'ロードレース', 'ハンマー投', 'アーチェリー', 'オートレース', ['競馬', 'けいば']],
         tsRegExpAll : true
     });
+    
 	
 });
 </script>
