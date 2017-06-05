@@ -27,19 +27,26 @@
 //demoなのでファイルの外だしはまだしない。
 
 $(function(){
-	
-	
-	//ajaxにてdataを取得しに行く
-	
-	
+
+
+	//TODO ajaxにてdataを取得しに行くテキトーなので後で直す
+	$.ajax({
+			type: 'POST',
+            url : '/aimsoft-attendance/getDataFortapSuggestLib',
+            success : function(data) {
+            	//dataが取れるところまで確認。
+                console.log(data);
+            }
+        });
+
     $('.tsArea').TapSuggest({
         tsInputElement : '.tsInput',
         tsArrayList : ['伊藤', ['倉田', 'kurata','くらた'], '岩井', '鈴木', 'バレーボール', 'ラクロス', 'ラグビー', 'バスケットボール', 'ゴルフ', 'テニス', 'バドミントン', 'ソフトボール', 'ビリヤード', 'ボウリング', ['競泳', 'きょうえい'], 'カーリング', ['卓球', 'たっきゅう'],
                         'ドッジボール', 'ダーツ', 'フットサル', 'クリケット', 'ラケットボール', 'ロードレース', 'ハンマー投', 'アーチェリー', 'オートレース', ['競馬', 'けいば']],
         tsRegExpAll : true
     });
-    
-	
+
+
 });
 </script>
 </body>
