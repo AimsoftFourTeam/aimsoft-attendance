@@ -1,53 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../../../lib/tapsuggest/css/reset.css" data-th-href="@{/lib/tapsuggest/css/reset.css}"/>
-	<link rel="stylesheet" href="../../../lib/tapsuggest/css/demo.css" data-th-href="@{/lib/tapsuggest/css/demo.css}"/>
-	<link rel="stylesheet" href="../../../lib/tapsuggest/css/TapSuggest.css" data-th-href="@{/lib/tapsuggest/css/TapSuggest.css}" />
-	<script src="../../../node_modules/jquery/dist/jquery.js" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
-	<script src="../../../lib/tapsuggest/js/Jquery.TapSuggest.js" data-th-src="@{/lib/tapsuggest/js/Jquery.TapSuggest.js}"></script>
-  <title>サンプル画面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../lib/tapsuggest/css/reset.css" data-th-href="@{/lib/tapsuggest/css/reset.css}" />
+    <link rel="stylesheet" href="../../../lib/tapsuggest/css/demo.css" data-th-href="@{/lib/tapsuggest/css/demo.css}" />
+    <link rel="stylesheet" href="../../../lib/tapsuggest/css/TapSuggest.css" data-th-href="@{/lib/tapsuggest/css/TapSuggest.css}" />
+    <script src="../../../node_modules/jquery/dist/jquery.js" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
+    <script src="../../../lib/tapsuggest/js/Jquery.TapSuggest.js" data-th-src="@{/lib/tapsuggest/js/Jquery.TapSuggest.js}"></script>
+    <title>サンプル画面</title>
 </head>
+
 <body>
-<div class="container">
-	<h1>TapSuggest.js(default)</h1>
-	<h2>ユーザー名検索</h2>
-    <div class="formArea">
-        <form method="post" action="">
-			<div class="inputArea">
-                <input type="text" class="tsInput"></input>
-			</div>
-        </form>
+    <div class="container">
+        <h1>TapSuggest.js(default)</h1>
+        <h2>ユーザー名検索</h2>
+        <div class="formArea">
+            <form method="post" action="">
+                <div class="inputArea">
+                    <input type="text" class="tsInput"></input>
+                </div>
+            </form>
+        </div>
+        <div class="tsArea"></div>
     </div>
-    <div class="tsArea"></div>
-</div>
-<script type="text/javascript">
+    <script type="text/javascript">
+        //demoなのでファイルの外だしはまだしない。
 
-//demoなのでファイルの外だしはまだしない。
-
-$(function(){
+        $(function() {
 
 
-	//TODO ajaxにてdataを取得しに行くテキトーなので後で直す
-	$.ajax({
-			type: 'POST',
-            url : '/aimsoft-attendance/getDataFortapSuggestLib',
-            success : function(data) {
-            	//dataが取れるところまで確認。
-                console.log(data);
+            //TODO ajaxにてdataを取得しに行くテキトーなので後で直す
+            $.ajax({
+                type: 'POST',
+                url: '/aimsoft-attendance/getDataFortapSuggestLib',
+                success: function(data) {
+                    //dataが取れるところまで確認。
+                    console.log(data);
+                }
+            });
+            $.ajax({
+                type: 'POST',
+                url: '/aimsoft-attendance/getDataFortapSuggestLib1',
+                success: function(data) {
+                    //dataが取れる  ところまで確認。
+
+                    console.log(data);
+                    if (false) {
+                        JSON.parse(JSON.stringify(data));
+                        $('.tsArea').TapSuggest({
+                            tsInputElement: '.tsInput',
+                            tsArrayList: data,
+                            tsRegExpAll: true
+                        });
+                    }
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '/aimsoft-attendance/getDataFortapSuggestLib2',
+                success: function(data) {
+                    //dataが取れる  ところまで確認。
+                    console.log(data);
+                    JSON.parse(JSON.stringify(data));
+                    $('.tsArea').TapSuggest({
+                        tsInputElement: '.tsInput',
+                        tsArrayList: data,
+                        tsRegExpAll: true
+                    });
+                }
+            });
+            if (false) {
+                //配列の配列を渡さないといけない
+                $('.tsArea').TapSuggest({
+                    tsInputElement: '.tsInput',
+                    tsArrayList: ['伊藤', ['倉田', 'kurata', 'くらた'], '岩井', '鈴木', 'バレーボール', ['競馬', 'けいば']],
+                    tsRegExpAll: true
+                });
             }
         });
 
-    $('.tsArea').TapSuggest({
-        tsInputElement : '.tsInput',
-        tsArrayList : ['伊藤', ['倉田', 'kurata','くらた'], '岩井', '鈴木', 'バレーボール', 'ラクロス', 'ラグビー', 'バスケットボール', 'ゴルフ', 'テニス', 'バドミントン', 'ソフトボール', 'ビリヤード', 'ボウリング', ['競泳', 'きょうえい'], 'カーリング', ['卓球', 'たっきゅう'],
-                        'ドッジボール', 'ダーツ', 'フットサル', 'クリケット', 'ラケットボール', 'ロードレース', 'ハンマー投', 'アーチェリー', 'オートレース', ['競馬', 'けいば']],
-        tsRegExpAll : true
-    });
-
-
-});
-</script>
+    </script>
 </body>
+
 </html>
