@@ -1,4 +1,4 @@
-package jp.co.aimsoft.attendance.model;
+package jp.co.aimsoft.attendance.sample.suggest.model;
 
 /**
  * suggestの為のデータクラス
