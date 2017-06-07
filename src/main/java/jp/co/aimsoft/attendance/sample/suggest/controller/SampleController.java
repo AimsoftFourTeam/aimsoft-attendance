@@ -28,7 +28,7 @@ public class SampleController {
 	public ModelAndView tapsuggestSample() {
 
 		ModelAndView viewable = new ModelAndView();
-		viewable.setViewName("sample/tapsuggest");
+		viewable.setViewName("/sample/tapsuggest");
 
 		return viewable;
 	}

@@ -34,10 +34,10 @@ public class UserTestController {
 
 	/**
 	 * 初期表示.
-	 * 
+	 *
 	 * @return response
 	 */
-	@RequestMapping("/mybatis/display")
+	@RequestMapping(value = "/mybatis/display", method = RequestMethod.GET)
 	public String mybatisTestFirstDisplay() {
 
 		return "sample/demo1";
@@ -45,12 +45,12 @@ public class UserTestController {
 
 	/**
 	 * ユーザー情報を1件登録
-	 * 
+	 *
 	 * @param model
 	 *            ユーザー情報
 	 * @return response
 	 */
-	@RequestMapping(name = "/mybatis/add", method = { RequestMethod.POST })
+	@RequestMapping(value = "/mybatis/add", method = RequestMethod.POST)
 	public String mybatisTestAdd(@ModelAttribute UserForm form) {
 
 		UserDto userDto = helper.createUserDto(form);
@@ -61,12 +61,12 @@ public class UserTestController {
 
 	/**
 	 * 全件取得し画面に表示する。
-	 * 
+	 *
 	 * @param viewable
 	 *            ModelAndView
 	 * @return ModelAndView
 	 */
-	@RequestMapping(name = "/mybatis/select", method = { RequestMethod.GET })
+	@RequestMapping(value = "/mybatis/select", method = RequestMethod.GET)
 	public ModelAndView mybatisTestGetAll(ModelAndView viewable) {
 
 		List<UserDto> userDtoList = userService.findByUserId();
