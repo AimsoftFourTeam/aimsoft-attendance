@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>初期画面</title>
+</head>
+<body>
+  <form>
+    <div data-th-each="_model : ${userModelList}">
+      <input type="text" data-th-value="${_model.userId}" />
+      <input type="text" data-th-value="${_model.userName}" />
+      <input type="text" data-th-value="${_model.userPassword}" />
+    </div>
+ </form>
+</body>
+</html>
