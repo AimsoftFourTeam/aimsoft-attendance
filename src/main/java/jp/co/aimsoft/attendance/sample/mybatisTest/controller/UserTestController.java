@@ -1,7 +1,5 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.form.UserForm;
 import jp.co.aimsoft.attendance.sample.mybatisTest.helper.UserHelper;
 import jp.co.aimsoft.attendance.sample.mybatisTest.service.UserServiceImpl;
@@ -53,9 +50,10 @@ public class UserTestController {
 	@RequestMapping(value = "/mybatis/add", method = RequestMethod.POST)
 	public String mybatisTestAdd(@ModelAttribute UserForm form) {
 
-		UserDto userDto = helper.createUserDto(form);
-
-		userService.addUser(userDto);
+		// TODO DB環境が整ったのち復活させる
+		// UserDto userDto = helper.createUserDto(form);
+		//
+		// userService.addUser(userDto);
 		return "sample/mybatisTestAddResult";
 	}
 
@@ -68,9 +66,9 @@ public class UserTestController {
 	 */
 	@RequestMapping(value = "/mybatis/select", method = RequestMethod.GET)
 	public ModelAndView mybatisTestGetAll(ModelAndView viewable) {
-
-		List<UserDto> userDtoList = userService.findByUserId();
-		viewable.addObject("userModelList", userDtoList);
+		// TODO DB環境が整ったのち復活させる
+		// List<UserDto> userDtoList = userService.findByUserId();
+		// viewable.addObject("userModelList", userDtoList);
 		viewable.setViewName("sample/mybatisTestGetAll");
 		return viewable;
 	}
