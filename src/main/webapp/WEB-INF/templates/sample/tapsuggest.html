@@ -45,26 +45,32 @@
                 url: '/aimsoft-attendance/getDataFortapSuggestLib1',
             }).done(function (data) {
                 console.log(data);
-
             });
 
             $.ajax({
                 type: 'POST',
                 url: '/aimsoft-attendance/getDataFortapSuggestLib2',
             }).done(function (data) {
-                //dataが取れる  ところまで確認。
+                //restと同様のデータが取得できる。
                 console.log(data);
-                JSON.parse(JSON.stringify(data));
-                $('.tsArea').TapSuggest({
-                    tsInputElement: '.tsInput',
-                    tsArrayList: data,
-                    tsRegExpAll: true
-                });
             }).fail(function (data) {
                 // 失敗時.
             }).always(function (data) {
                 // 常に（finalyと同様）
 
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '/aimsoft-attendance/rest/getDataFortapSuggestLib2',
+            }).done(function (data) {
+                //dataが取れる  ところまで確認。
+                console.log("rest/getDataFortapSuggestLib2: " + data);
+                $('.tsArea').TapSuggest({
+                    tsInputElement: '.tsInput',
+                    tsArrayList: data,
+                    tsRegExpAll: true
+                });
             });
 
             if (false) {

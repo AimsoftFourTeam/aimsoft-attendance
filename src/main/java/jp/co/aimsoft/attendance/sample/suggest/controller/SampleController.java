@@ -18,11 +18,6 @@ import jp.co.aimsoft.attendance.sample.suggest.model.UserNameKeyAssist;
 @Controller
 public class SampleController {
 
-	/** コンストラクタ. */
-	public SampleController() {
-
-	}
-
 	/**
 	 * 初期表示.
 	 * 
@@ -38,7 +33,7 @@ public class SampleController {
 	}
 
 	/**
-	 * // * tapsuggestのデータを返すだけのテスト<br/>
+	 * tapsuggestのデータを返すだけのテスト<br/>
 	 * ajaxテスト用 色々やり方があるから迷っている<br/>
 	 * あとでControllerの単位とかは考える。
 	 * 
@@ -52,7 +47,7 @@ public class SampleController {
 	}
 
 	/**
-	 * // * tapsuggestのデータを返すだけのテスト<br/>
+	 * tapsuggestのデータを返すだけのテスト<br/>
 	 * ajaxテスト用 色々やり方があるから迷っている<br/>
 	 * あとでControllerの単位とかは考える。
 	 * 
@@ -66,7 +61,7 @@ public class SampleController {
 	}
 
 	/**
-	 * // * tapsuggestのデータを返すだけのテスト<br/>
+	 * tapsuggestのデータを返すだけのテスト<br/>
 	 * ajaxテスト用 色々やり方があるから迷っている<br/>
 	 * あとでControllerの単位とかは考える。
 	 * 
@@ -106,5 +101,10 @@ public class SampleController {
 		lists.add(Arrays.asList("佐藤", "sato", "サトウ", "さとう"));
 		lists.add(Arrays.asList("伊藤", "ito", "イトウ", "いとう"));
 		return lists;
+	}
+
+	/** コンストラクタ. */
+	public SampleController() {
+
 	}
 }
