@@ -103,6 +103,8 @@ public class SampleController {
 		lists.add(Arrays.asList("倉田", "kurata", "クラタ", "くらた"));
 		lists.add(Arrays.asList("岩井", "iwai", "イワイ", "いわい"));
 		lists.add(Arrays.asList("高橋", "takahashi", "タカハシ", "たかはし"));
+		lists.add(Arrays.asList("佐藤", "sato", "サトウ", "さとう"));
+		lists.add(Arrays.asList("伊藤", "ito", "イトウ", "いとう"));
 		return lists;
 	}
 }

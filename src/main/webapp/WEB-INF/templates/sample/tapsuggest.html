@@ -27,50 +27,46 @@
     <script type="text/javascript">
         //demoなのでファイルの外だしはまだしない。
 
-        $(function() {
+        $(function () {
 
-
-            //TODO ajaxにてdataを取得しに行くテキトーなので後で直す
+            //object配列サンプル
             $.ajax({
                 type: 'POST',
                 url: '/aimsoft-attendance/getDataFortapSuggestLib',
-                success: function(data) {
-                    //dataが取れるところまで確認。
-                    console.log(data);
-                }
+            }).done(function (data) {
+                //dataが取れるところまで確認。
+                console.log(data);
+
             });
+
+            //json形式サンプル
             $.ajax({
                 type: 'POST',
                 url: '/aimsoft-attendance/getDataFortapSuggestLib1',
-                success: function(data) {
-                    //dataが取れる  ところまで確認。
+            }).done(function (data) {
+                console.log(data);
 
-                    console.log(data);
-                    if (false) {
-                        JSON.parse(JSON.stringify(data));
-                        $('.tsArea').TapSuggest({
-                            tsInputElement: '.tsInput',
-                            tsArrayList: data,
-                            tsRegExpAll: true
-                        });
-                    }
-                }
             });
 
             $.ajax({
                 type: 'POST',
                 url: '/aimsoft-attendance/getDataFortapSuggestLib2',
-                success: function(data) {
-                    //dataが取れる  ところまで確認。
-                    console.log(data);
-                    JSON.parse(JSON.stringify(data));
-                    $('.tsArea').TapSuggest({
-                        tsInputElement: '.tsInput',
-                        tsArrayList: data,
-                        tsRegExpAll: true
-                    });
-                }
+            }).done(function (data) {
+                //dataが取れる  ところまで確認。
+                console.log(data);
+                JSON.parse(JSON.stringify(data));
+                $('.tsArea').TapSuggest({
+                    tsInputElement: '.tsInput',
+                    tsArrayList: data,
+                    tsRegExpAll: true
+                });
+            }).fail(function (data) {
+                // 失敗時.
+            }).always(function (data) {
+                // 常に（finalyと同様）
+
             });
+
             if (false) {
                 //配列の配列を渡さないといけない
                 $('.tsArea').TapSuggest({
@@ -80,7 +76,6 @@
                 });
             }
         });
-
     </script>
 </body>
 
