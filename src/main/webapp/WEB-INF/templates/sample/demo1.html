@@ -5,6 +5,7 @@
   <title>初期画面</title>
 </head>
 <body>
+  <div data-th-unless="${#strings.isEmpty(message)}"><span data-th-text="${message}"></span></div>
   <form method="GET" action="/aimsoft-attendance/mybatis/select">
     <input type="submit" value="SELECT実行" />
   </form>

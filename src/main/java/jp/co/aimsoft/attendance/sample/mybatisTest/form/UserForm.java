@@ -1,8 +1,11 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.form;
 
+import javax.validation.constraints.NotNull;
+
 public class UserForm {
 
 	/** ユーザーID. */
+	@NotNull
 	private String userId;
 
 	/** ユーザー名. */
