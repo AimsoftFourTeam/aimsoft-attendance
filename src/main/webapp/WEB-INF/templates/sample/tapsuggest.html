@@ -24,59 +24,7 @@
         </div>
         <div class="tsArea"></div>
     </div>
-    <script type="text/javascript">
-        //demoなのでファイルの外だしはまだしない。
-
-        $(function () {
-
-            //object配列サンプル
-            $.ajax({
-                type: 'POST',
-                url: '/aimsoft-attendance/getDataFortapSuggestLib',
-            }).done(function (data) {
-                //dataが取れるところまで確認。
-                console.log(data);
-
-            });
-
-            //json形式サンプル
-            $.ajax({
-                type: 'POST',
-                url: '/aimsoft-attendance/getDataFortapSuggestLib1',
-            }).done(function (data) {
-                console.log(data);
-
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: '/aimsoft-attendance/getDataFortapSuggestLib2',
-            }).done(function (data) {
-                //dataが取れる  ところまで確認。
-                console.log(data);
-                JSON.parse(JSON.stringify(data));
-                $('.tsArea').TapSuggest({
-                    tsInputElement: '.tsInput',
-                    tsArrayList: data,
-                    tsRegExpAll: true
-                });
-            }).fail(function (data) {
-                // 失敗時.
-            }).always(function (data) {
-                // 常に（finalyと同様）
-
-            });
-
-            if (false) {
-                //配列の配列を渡さないといけない
-                $('.tsArea').TapSuggest({
-                    tsInputElement: '.tsInput',
-                    tsArrayList: ['伊藤', ['倉田', 'kurata', 'くらた'], '岩井', '鈴木', 'バレーボール', ['競馬', 'けいば']],
-                    tsRegExpAll: true
-                });
-            }
-        });
-    </script>
+    <script src="../../../js/sample/suggest/index.js" data-th-src="@{/js/sample/suggest/index.js}"></script>
 </body>
 
 </html>
