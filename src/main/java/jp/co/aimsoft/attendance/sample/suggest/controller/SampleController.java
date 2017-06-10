@@ -73,10 +73,11 @@ public class SampleController {
 	 * @return response
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/getDataFortapSuggestLib1", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/getDataFortapSuggestLib1", method = RequestMethod.POST)
 	public String getJsonDataFortapSuggestLib1() {
+		
 		ObjectMapper mapper = new ObjectMapper();
-		// produces="text/plain;charset=utf-8"については、Springの設定ファイルで解消できるはず。
+		
 		String jsonString = null;
 		try {
 			jsonString = mapper.writeValueAsString(this.createTestData());
