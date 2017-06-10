@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.SerializationUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,7 +62,6 @@ public class SampleController {
 	@ResponseBody
 	@RequestMapping(value = "/getDataFortapSuggestLib2", method = RequestMethod.POST)
 	public List<List<String>> getJsonDataFortapSuggestLib2() {
-
 		return this.createTestData2();
 	}
 
