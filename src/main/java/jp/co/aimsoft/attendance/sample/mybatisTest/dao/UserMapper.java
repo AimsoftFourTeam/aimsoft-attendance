@@ -55,8 +55,8 @@ import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 public interface UserMapper {
 
 	/** SELECT全件. */
-	List<UserDto> getAllUser();
+	List<UserDto> findAll();
 
 	/** INSERT. */
-	void add(UserDto dto);
+	void addUser(UserDto dto);
 }

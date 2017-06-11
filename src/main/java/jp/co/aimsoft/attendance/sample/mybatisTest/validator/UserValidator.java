@@ -32,7 +32,7 @@ public class UserValidator implements Validator {
 			/*
 			 * rejectValue({プロパティ名}, {エラーコード}, {メッセージ引数配列},{デフォルトメッセージ}])
 			 */
-			errors.rejectValue("userId", "error.com.required", new String[] { "ユーザID" }, "エラーメッセージが見つかりません。");
+			errors.rejectValue("userId", "error.required", new String[] { "ユーザID" }, "エラーメッセージが見つかりません。");
 		}
 	}
 

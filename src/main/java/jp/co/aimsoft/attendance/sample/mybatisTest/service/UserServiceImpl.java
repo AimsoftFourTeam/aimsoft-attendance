@@ -14,7 +14,7 @@ import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
  */
 @Service
 @Transactional
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 	// TODO DB環境が整ったのち復活させる
 	@Autowired
 	private UserMapper mapper;
@@ -32,7 +32,7 @@ public class UserServiceImpl {
 	 */
 	@Transactional
 	public void addUser(UserDto inputModel) {
-		mapper.add(inputModel);
+		mapper.addUser(inputModel);
 	}
 
 	/**
@@ -43,9 +43,9 @@ public class UserServiceImpl {
 	 * @return UserModel ユーザーモデル
 	 */
 	@Transactional
-	public List<UserDto> findByUserId() {
+	public List<UserDto> findAll() {
 
-		List<UserDto> resultModel = mapper.getAllUser();
+		List<UserDto> resultModel = mapper.findAll();
 
 		return resultModel;
 	}

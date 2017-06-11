@@ -36,10 +36,10 @@ Mapperの場所はどこでも良いが、javaファイルとセットで直す�
 			</set>
 		WHERE s_user_id=#{sUserId}
 	</update>-->
-	<select id="getAllUser" resultType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
+	<select id="findAll" resultType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
         SELECT * FROM usermaster
     </select>
-    <insert id="add" parameterType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
+    <insert id="addUser" parameterType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
         INSERT INTO usermaster (
           user_id,
           user_name,
