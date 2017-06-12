@@ -1,7 +1,5 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.form.UserForm;
 import jp.co.aimsoft.attendance.sample.mybatisTest.helper.UserHelper;
 import jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService;
@@ -93,9 +90,9 @@ public class UserTestController {
 		}
 
 		// TODO DB環境が整ったのち復活させる
-		UserDto userDto = helper.createUserDto(form);
-
-		userService.addUser(userDto);
+		// UserDto userDto = helper.createUserDto(form);
+		//
+		// userService.addUser(userDto);
 		modelAndView.setViewName("sample/mybatisTestAddResult");
 		return modelAndView;
 	}
@@ -110,8 +107,8 @@ public class UserTestController {
 	@RequestMapping(value = "/mybatis/select", method = RequestMethod.GET)
 	public ModelAndView mybatisTestGetAll(ModelAndView viewable) {
 		// TODO DB環境が整ったのち復活させる
-		List<UserDto> userDtoList = userService.findAll();
-		viewable.addObject("userModelList", userDtoList);
+		// List<UserDto> userDtoList = userService.findAll();
+		// viewable.addObject("userModelList", userDtoList);
 		viewable.setViewName("sample/mybatisTestGetAll");
 		return viewable;
 	}
