@@ -4,16 +4,16 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>初期画面</title>
 </head>
-<body data-th-with="hasErr = ${validationResult}">
+<body>
   <div data-th-object="${form}">
     <form method="GET" action="/aimsoft-attendance/mybatis/select">
       <input type="submit" value="SELECT実行" />
     </form>
     <br />
     <form method="POST" action="/aimsoft-attendance/mybatis/add">
-      <input type="text" name="userId" value="" /><span data-th-if="${hasErr and #fields.hasErrors('userId')}" data-th-errors="*{userId}"></span><br />
-      <input type="text" name="userName" value="" /><br />
-      <input type="text" name="userPassword" value="" /><br />
+      <input type="text" name="userId" data-th-value="${form.userId}" /><span data-th-if="${#fields.hasErrors('userId')}" data-th-errors="*{userId}"></span><br />
+      <input type="text" name="userName" data-th-value="${form.userName}" /><br />
+      <input type="text" name="userPassword" data-th-value="${form.userPassword}" /><br />
       <input type="submit" value="INSERT実行" /><br />
     </form>
   </div>

@@ -56,7 +56,6 @@ public class UserTestController {
 
 	/**
 	 * 初期表示.<br />
-	 * ModelAndViewにvalidationResultをnullにて必ず指定すること<br />
 	 *
 	 * @return response response
 	 */
@@ -64,8 +63,7 @@ public class UserTestController {
 	public ModelAndView mybatisTestFirstDisplay() {
 
 		ModelAndView modelAndView = new ModelAndView();
-		// validationResultは指定必須とする。初期表示時はfalseとすること。
-		modelAndView.addObject("validationResult", false);
+		modelAndView.addObject("form", new UserForm());
 		modelAndView.setViewName("sample/demo1");
 		return modelAndView;
 	}
@@ -89,8 +87,7 @@ public class UserTestController {
 		// Validation Errorがある場合
 		if (result.hasErrors()) {
 
-			// validationResult=true(エラー表示あり)を指定
-			modelAndView.addObject("validationResult", true);
+			modelAndView.addObject("form", form);
 			modelAndView.setViewName("sample/demo1");
 			return modelAndView;
 		}
