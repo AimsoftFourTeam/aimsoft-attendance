@@ -23,6 +23,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<jackson-asl.version>1.9.13</jackson-asl.version>
+		<thymeleaf.version>3.0.6.RELEASE</thymeleaf.version>
+        <thymeleaf-extras-data-attribute.version>2.0.1</thymeleaf-extras-data-attribute.version>
+        <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
 	</properties>
 
 	<dependencies>
