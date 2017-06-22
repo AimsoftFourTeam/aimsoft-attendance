@@ -25,8 +25,8 @@
 		<jackson-asl.version>1.9.13</jackson-asl.version>
 		<thymeleaf.version>3.0.5.RELEASE</thymeleaf.version>
 		<thymeleaf-layout-dialect.version>2.0.1</thymeleaf-layout-dialect.version>
-        <thymeleaf-extras-data-attribute.version>2.0.1</thymeleaf-extras-data-attribute.version>
-        <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
+		<thymeleaf-extras-data-attribute.version>2.0.1</thymeleaf-extras-data-attribute.version>
+		<thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
 	</properties>
 
 	<dependencies>
@@ -55,11 +55,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -68,6 +63,11 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
@@ -78,16 +78,16 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-javadoc-plugin</artifactId>
-			  <configuration>
-			    <author>false</author>
-			    <source>1.8</source>
-			    <show>private</show>
-			    <encoding>UTF-8</encoding>
-			    <charset>UTF-8</charset>
-			    <docencoding>UTF-8</docencoding>
-			  </configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<author>false</author>
+					<source>1.8</source>
+					<show>private</show>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+					<docencoding>UTF-8</docencoding>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
