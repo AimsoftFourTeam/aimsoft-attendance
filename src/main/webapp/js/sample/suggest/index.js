@@ -31,7 +31,7 @@ $(function () {
 
         let promise = $.ajax({
             type: 'POST',
-            url: '/aimsoft-attendance/getDataFortapSuggestLib2',
+            url: '/aimsoft-attendance/api/suggest/getDataFortapSuggestLib',
         });
 
         return promise;
