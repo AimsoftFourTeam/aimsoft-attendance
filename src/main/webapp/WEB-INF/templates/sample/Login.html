@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>エイム・ソフト勤怠管理システム</title>
+</head>
+<body>
+	<h>エイム・ソフト勤怠管理システム</h>
+	<p>ログイン</p>
+	<form method="POST" th:action="@{/result}">
+	 	<p>ID : <input type="text" name="userId" data-th-value="${model.id}"/></p>
+	 	<p>名前 : <input type="text" name="userName" data-th-value="${model.name}"/></p>
+	 	<p><input type="submit" value="ログイン"><input type="reset" value="リセット" /></p>
+	</form>
+</body>
+</html>
