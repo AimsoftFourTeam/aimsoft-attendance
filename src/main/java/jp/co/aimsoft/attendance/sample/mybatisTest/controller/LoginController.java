@@ -10,7 +10,7 @@ import jp.co.aimsoft.attendance.sample.mybatisTest.form.LoginForm;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value = "/testToday", method = RequestMethod.GET)
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	public ModelAndView LoginMenu() {
 		ModelAndView LoginMenu = new ModelAndView();
 		LoginMenu.setViewName("sample/Login");
