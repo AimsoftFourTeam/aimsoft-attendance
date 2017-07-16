@@ -21,6 +21,7 @@ import jp.co.aimsoft.attendance.sample.mybatisTest.validator.UserValidator;
  * SpringBoot-MyBatis-Postgres.
  */
 @Controller
+@RequestMapping("iwai")
 public class UserTestController {
 
 	/** ユーザーロジック. */
