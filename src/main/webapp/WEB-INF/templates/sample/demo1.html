@@ -6,11 +6,11 @@
 </head>
 <body>
   <div data-th-object="${form}">
-    <form method="GET" action="/aimsoft-attendance/mybatis/select">
+    <form method="GET" data-th-action="@{/iwai/mybatis/select}">
       <input type="submit" value="SELECT実行" />
     </form>
     <br />
-    <form method="POST" action="/aimsoft-attendance/mybatis/add">
+    <form method="POST" data-th-action="@{/iwai/mybatis/add}">
       <input type="text" name="userId" data-th-value="${form.userId}" /><span data-th-if="${#fields.hasErrors('userId')}" data-th-errors="*{userId}"></span><br />
       <input type="text" name="userName" data-th-value="${form.userName}" /><br />
       <input type="text" name="userPassword" data-th-value="${form.userPassword}" /><br />
