@@ -1,13 +1,14 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.form;
 
 public class LoginForm {
-	private String id, name;
+	private long id;
+	private String name;
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String userId) {
+	public void setId(long userId) {
 		this.id = userId;
 	}
 
