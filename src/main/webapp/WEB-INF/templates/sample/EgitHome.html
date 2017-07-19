@@ -7,8 +7,8 @@
 <body>
 	<h>エイム・ソフト勤怠管理システム</h>
 	<p>編集画面</p>
-	<p>編集者ID : <p th:text="${model.userId}"/>
-	<p>編集者名　:　<p th:text="${model.userName}" />
+	<p th:text="'編集者ID　: ' + ${model.userId}"/>
+	<p th:text="'編集者名　:　' + ${model.userName}" />
 	
 	<!-- 
 	<form:select path="NameBook">
