@@ -4,19 +4,19 @@ public class LoginForm {
 	private long id;
 	private String name;
 
-	public long getId() {
+	public long getUserId() {
 		return id;
 	}
 
-	public void setId(long userId) {
+	public void setUserId(long userId) {
 		this.id = userId;
 	}
 
-	public String getName() {
+	public String getUserName() {
 		return name;
 	}
 
-	public void setName(String userName) {
+	public void setUserName(String userName) {
 		this.name = userName;
 	}
 }

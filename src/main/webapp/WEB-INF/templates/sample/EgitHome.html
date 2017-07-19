@@ -7,8 +7,14 @@
 <body>
 	<h>エイム・ソフト勤怠管理システム</h>
 	<p>編集画面</p>
-	<p th:text="'id: ' + ${model.id}" />
-	<p th:text="'name: ' + ${model.name}" />さん
-
+	<p>編集者ID : <p th:text="${model.userId}"/>
+	<p>編集者名　:　<p th:text="${model.userName}" />
+	
+	<!-- 
+	<form:select path="NameBook">
+		<form:option value="">社員を選択してください。</form:option>
+		<form:options items="${form.namelist}"/>
+	</form:select>
+	 -->
 </body>
 </html>
