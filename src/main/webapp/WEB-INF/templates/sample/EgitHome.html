@@ -10,11 +10,9 @@
 	<p th:text="'編集者ID　: ' + ${model.userId}"/>
 	<p th:text="'編集者名　:　' + ${model.userName}" />
 	
-	<!-- 
-	<form:select path="NameBook">
-		<form:option value="">社員を選択してください。</form:option>
-		<form:options items="${form.namelist}"/>
-	</form:select>
-	 -->
+	<!-- <select id="singleSelect" name="selectedItem">
+     <option value="">---</option>
+     <option th:each="item : ${namelist}" th:value="${item.value}" th:text="${item.value}" th:selected="${item.value} == *{namelist}">singleSelect</option>
+</select> -->
 </body>
 </html>
