@@ -9,7 +9,7 @@
     <form id="mainForm"  method="POST">
       <input type="text" name="userId" data-th-value="${form.userId}" /><span data-th-if="${#fields.hasErrors('userId')}" data-th-errors="*{userId}"></span><br />
       <input type="text" name="userName" data-th-value="${form.userName}" /><br />
-      <input type="text" name="userPassword" data-th-value="${form.userPassword}" /><br />
+      <input type="text" id="testField" name="userPassword" data-th-value="${form.userPassword}" /><br />
       <input type="button" id="insertButton" class="submitButton" data-th-data-action="@{/iwai/mybatis/add}" name="insertButtonName" value="登録" /><br />
       <input type="button" id="updateButton" class="submitButton" data-th-data-action="@{/iwai/mybatis/update}" name="updateButtonName" value="更新" /><br/>
     </form>
@@ -21,6 +21,7 @@
     </form>
   </div>
   <script type="text/javascript" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
-  <script type="text/javascript" data-th-src="@{/js/sample/common/submit-function.js}"></script>
+  <script type="text/javascript" data-th-src="@{/js/sample/common/submitCallBack.js}"></script>
+  <script type="text/javascript" data-th-src="@{/js/sample/mybatisTest/mybatisTest.js}"></script>
 </body>
 </html>
