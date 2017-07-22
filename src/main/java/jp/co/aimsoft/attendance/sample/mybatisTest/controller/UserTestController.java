@@ -1,5 +1,7 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.form.UserForm;
 import jp.co.aimsoft.attendance.sample.mybatisTest.helper.UserHelper;
 import jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService;
@@ -62,7 +65,7 @@ public class UserTestController {
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("form", new UserForm());
-		modelAndView.setViewName("sample/demo1");
+		modelAndView.setViewName("sample/demo");
 		return modelAndView;
 	}
 
@@ -86,15 +89,15 @@ public class UserTestController {
 		if (result.hasErrors()) {
 
 			modelAndView.addObject("form", form);
-			modelAndView.setViewName("sample/demo1");
+			modelAndView.setViewName("sample/demo");
 			return modelAndView;
 		}
 
 		// TODO DB環境が整ったのち復活させる
-		// UserDto userDto = helper.createUserDto(form);
-		//
-		// userService.addUser(userDto);
-		modelAndView.setViewName("sample/mybatisTestAddResult");
+		UserDto userDto = helper.createUserDto(form);
+
+		userService.addUser(userDto);
+		modelAndView.setViewName("sample/demoResult");
 		return modelAndView;
 	}
 
@@ -103,15 +106,61 @@ public class UserTestController {
 	 *
 	 * @param viewable
 	 *            ModelAndView
-	 * @return ModelAndView
+	 * @return Response
 	 */
-	@RequestMapping(value = "/mybatis/select", method = RequestMethod.GET)
-	public ModelAndView mybatisTestGetAll(ModelAndView viewable) {
+	@RequestMapping(value = "/mybatis/select", method = RequestMethod.POST)
+	public ModelAndView mybatisTestGetAll() {
+
+		ModelAndView viewable = new ModelAndView();
 		// TODO DB環境が整ったのち復活させる
-		// List<UserDto> userDtoList = userService.findAll();
-		// viewable.addObject("userModelList", userDtoList);
-		viewable.setViewName("sample/mybatisTestGetAll");
+		List<UserDto> userDtoList = userService.findAll();
+		viewable.addObject("userModelList", userDtoList);
+		viewable.setViewName("sample/demoList");
 		return viewable;
+	}
+
+	/**
+	 * ユーザーIDを元にUserMasterを１件更新します。
+	 * 
+	 * @param form
+	 *            form
+	 * @param result
+	 *            バリデーション結果
+	 * @return Response
+	 */
+	@RequestMapping(value = "/mybatis/update", method = RequestMethod.POST)
+	public ModelAndView mybatisTestUpdateOne(@ModelAttribute("form") @Valid UserForm form, BindingResult result) {
+
+		ModelAndView modelAndView = new ModelAndView();
+
+		// Validation Errorがある場合
+		if (result.hasErrors()) {
+
+			modelAndView.addObject("form", form);
+			modelAndView.setViewName("sample/demo");
+			return modelAndView;
+		}
+
+		// TODO DB環境が整ったのち復活させる
+		UserDto userDto = helper.createUserDto(form);
+
+		userService.updateOne(userDto);
+		modelAndView.setViewName("sample/demoResult");
+		return modelAndView;
+	}
+
+	/**
+	 * UserMaster全件削除します。
+	 * 
+	 * @return Response
+	 */
+	@RequestMapping(value = "/mybatis/delete", method = RequestMethod.POST)
+	public ModelAndView mybatisTestDeleteAll() {
+
+		userService.deleteAll();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("sample/demoResult");
+		return modelAndView;
 	}
 
 }
