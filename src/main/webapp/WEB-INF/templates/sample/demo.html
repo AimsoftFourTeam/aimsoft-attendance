@@ -6,18 +6,18 @@
 </head>
 <body>
   <div data-th-object="${form}">
-    <form id="mainForm"  method="POST">
+    <form method="POST">
       <input type="text" name="userId" data-th-value="${form.userId}" /><span data-th-if="${#fields.hasErrors('userId')}" data-th-errors="*{userId}"></span><br />
       <input type="text" name="userName" data-th-value="${form.userName}" /><br />
       <input type="text" id="testField" name="userPassword" data-th-value="${form.userPassword}" /><br />
-      <input type="button" id="insertButton" class="submitButton" data-th-data-action="@{/iwai/mybatis/add}" name="insertButtonName" value="登録" /><br />
-      <input type="button" id="updateButton" class="submitButton" data-th-data-action="@{/iwai/mybatis/update}" name="updateButtonName" value="更新" /><br/>
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/add}" value="登録" /><br />
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/update}" value="更新" /><br/>
     </form>
-    <form method="POST" data-th-action="@{/iwai/mybatis/select}">
-      <input type="submit" value="参照" />
+    <form method="POST">
+      <input type="button" data-th-data-action="@{/iwai/mybatis/select}" class="submitButton" value="参照" />
     </form>
-    <form method="POST" data-th-action="@{/iwai/mybatis/delete}">
-      <input type="submit" value="削除" />
+    <form method="POST">
+      <input type="button" data-th-data-action="@{/iwai/mybatis/delete}" class="submitButton" value="削除" />
     </form>
   </div>
   <script type="text/javascript" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
