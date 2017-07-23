@@ -5,5 +5,9 @@ public interface UserService {
 	// void addUser(UserDto dto);
 	//
 	// List<UserDto> findAll();
+	//
+	// void updateOne(UserDto dto);
+	//
+	// void deleteAll();
 
 }

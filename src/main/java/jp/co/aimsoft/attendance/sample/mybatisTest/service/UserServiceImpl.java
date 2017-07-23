@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
 	// * ユーザーモデル.
 	// */
 	// @Transactional
-	// public void addUser(UserDto inputModel) {
-	// mapper.addUser(inputModel);
+	// public void addUser(UserDto dto) {
+	// mapper.addUser(dto);
 	// }
 	//
 	// /**
@@ -42,6 +42,25 @@ public class UserServiceImpl implements UserService {
 	// List<UserDto> resultModel = mapper.findAll();
 	//
 	// return resultModel;
+	// }
+	//
+	// /**
+	// * ユーザーIDを元にユーザー情報を1件更新します。
+	// *
+	// * @param dto
+	// * ユーザーDTO
+	// */
+	// @Transactional
+	// public void updateOne(UserDto dto) {
+	// mapper.updateOne(dto);
+	// }
+	//
+	// /**
+	// * UserMaster全件削除します。
+	// */
+	// @Transactional
+	// public void deleteAll() {
+	// mapper.deleteAll();
 	// }
 
 }
