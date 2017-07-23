@@ -14,14 +14,15 @@
       <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/update}" value="更新" /><br/>
     </form>
     <form method="POST">
-      <input type="button" data-th-data-action="@{/iwai/mybatis/select}" class="submitButton" value="参照" />
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/select}" value="参照" />
     </form>
     <form method="POST">
-      <input type="button" data-th-data-action="@{/iwai/mybatis/delete}" class="submitButton" value="削除" />
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/delete}" value="削除" />
     </form>
   </div>
   <script type="text/javascript" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
-  <script type="text/javascript" data-th-src="@{/js/sample/common/submitUseCallBack.js}"></script>
+  <script type="text/javascript" data-th-src="@{/js/sample/common/submit.js}"></script>
   <script type="text/javascript" data-th-src="@{/js/sample/mybatisTest/mybatisTest.js}"></script>
 </body>
+
 </html>
