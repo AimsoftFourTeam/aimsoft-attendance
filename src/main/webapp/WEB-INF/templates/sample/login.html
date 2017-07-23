@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>ログイン画面</title>
+</head>
+<body>
+  <form method="POST" data-th-action="@{/iwai/login/to-next}">
+    <input type="text" name="userId" /><br />
+    <input type="text" name="password" /><br />
+    <input type="submit" value="INSERT実行" /><br />
+  </form>
+</body>
+</html>
