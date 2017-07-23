@@ -10,11 +10,12 @@
 function submitCallBackFunction(form,action,callBackFunction) {
 
   if(typeof(callBackFunction) === "function"){
-	  
-	  let isOk = callBackFunction();
-	  if(!isOk){
-	    return false;
-	  }
+  
+    let isOk = callBackFunction();
+
+    if(!isOk){
+      return false;
+    }
   }
   
   form.attr("action",action);
