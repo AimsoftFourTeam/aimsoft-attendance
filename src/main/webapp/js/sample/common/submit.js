@@ -4,9 +4,9 @@
  *
  * @returns Request
  */
-function submitFunction() {
-  let $form = $(this).parents('form');
-  $form.attr("action", $(this).data("action"));
+function submitFunction($object) {
+  let $form = $object.parents('form');
+  $form.attr("action", $object.data("action"));
   $form.submit();
 }
 
@@ -17,13 +17,20 @@ function submitFunction() {
  * @param callBackFunction submitの前に行うコールバック関数
  * @returns Request
  */
-function submitCallBackFunction(callBackFunction) {
+function submitCallBackFunction($object, callBackFunction) {
 
   let isOk = callBackFunction();
   if (isOk) {
-    // submitFunction();
-    let $form = $(this).parents('form');
-    $form.attr("action", $(this).data("action"));
-    $form.submit();
+     submitFunction($object);
   }
 }
+
+//$(".submitButton").on('click', function() {
+//  let isOk = callback();
+//  if (isOk) {
+//     submitFunction();
+//    let $form = $(this).parents('form');
+//    $form.attr("action", $(this).data("action"));
+//    $form.submit();
+//  }
+//});
