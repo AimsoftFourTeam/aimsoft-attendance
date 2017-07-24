@@ -21,5 +21,5 @@ function callbackfunction() {
 }
 
 $(".submitButton").on('click', function() {
-  submitCallBackFunction($(this),callbackfunction);
+  submitCallBackFunction($(this), callbackfunction);
 });

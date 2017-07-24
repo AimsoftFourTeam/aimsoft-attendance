@@ -21,7 +21,7 @@ function submitCallBackFunction($object, callBackFunction) {
 
   let isOk = callBackFunction();
   if (isOk) {
-     submitFunction($object);
+    submitFunction($object);
   }
 }
 
