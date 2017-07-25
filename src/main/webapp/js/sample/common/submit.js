@@ -1,6 +1,6 @@
 /**
  * submit共通関数。
- * ボタンを含むformおよびdata属性に指定されたactionを基にsubmitします。
+ * イベント発火要素よりformとactionを取得しsubmitします。
  *
  * @param $element イベントが発生した要素
  * @returns Request
@@ -12,7 +12,7 @@ function submitFunction($element) {
 }
 
 /**
- * submit共通関数。
+ * コールバック関数付きsubmit共通関数。
  * callback関数を実行し、結果がtrueの場合にsubmit共通関数を呼び出します。
  *
  * @param $element イベントが発生した要素
