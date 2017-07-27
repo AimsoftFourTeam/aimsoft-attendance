@@ -5,14 +5,27 @@
 <title>エイム・ソフト勤怠管理システム</title>
 </head>
 <body>
-	<h>エイム・ソフト勤怠管理システム</h>
+	<h1>エイム・ソフト勤怠管理システム</h1>
 	<p>編集画面</p>
-	<p th:text="'編集者ID　: ' + ${model.userId}"/>
-	<p th:text="'編集者名　:　' + ${model.userName}" />
+	<p data-th-text="'編集者ID　: ' + ${model.userId}"/><!-- セッション情報 -->
+	<p data-th-text="'編集者名　:　' + ${model.userName}" /><!-- セッション情報 -->
 	
-	<!-- <select id="singleSelect" name="selectedItem">
-     <option value="">---</option>
-     <option th:each="item : ${namelist}" th:value="${item.value}" th:text="${item.value}" th:selected="${item.value} == *{namelist}">singleSelect</option>
-</select> -->
+	<hr>
+		
+	<form action="NameBook" method="POST">
+		<select name="syainName">
+			<option data-th-each="item : ${syainitems.keySet()}" 
+					data-th-text="${syainitems.get(item).get(0)}" 
+					data-th-value="${item}" 
+					data-th-selected="${item} == ${model.syainName}">
+			</option>
+		</select>
+		<input type=submit value="検索">
+	</form>
+	
+	<p data-th-text="'社員　：　'+ ${syainitems.get(model.syainName).get(0)}"/><!-- レスポンス情報 -->
+	<p data-th-text="'入社日　：　'+ ${syainitems.get(model.syainName).get(1)}"/>
+	<p data-th-text="'部門　：　'+ ${syainitems.get(model.syainName).get(2)}"/>
+	<p data-th-text="'現場　：　'+ ${syainitems.get(model.syainName).get(3)}"/>
 </body>
 </html>

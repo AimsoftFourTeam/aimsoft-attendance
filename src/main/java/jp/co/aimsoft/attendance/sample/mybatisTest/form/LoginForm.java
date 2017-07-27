@@ -19,4 +19,9 @@ public class LoginForm {
 	public void setUserName(String userName) {
 		this.name = userName;
 	}
+
+	public Integer getSyainName() {
+		return 0;
+	}
+
 }

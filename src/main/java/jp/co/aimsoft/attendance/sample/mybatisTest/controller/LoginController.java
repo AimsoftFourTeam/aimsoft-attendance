@@ -1,5 +1,9 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.controller;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +27,46 @@ public class LoginController {
 		ModelAndView LoginMenu = new ModelAndView();
 		LoginMenu.setViewName("sample/EgitHome");
 		LoginMenu.addObject("model", form);
+		LoginMenu.addObject("syainitems", getListItems());
 		return LoginMenu;
+	}
+
+	private Map<Integer, ArrayList<String>> getListItems() {
+		Map<Integer, ArrayList<String>> ListItems = new LinkedHashMap<Integer, ArrayList<String>>();
+
+		ArrayList<String> zero = new ArrayList<String>();
+		zero.add("");
+		zero.add("");
+		zero.add("");
+		zero.add("");
+		ListItems.put(0, zero);
+
+		ListItems.put(1, new ArrayList<String>() {
+			{
+				add("木村　拓哉");
+			}
+		});
+		ListItems.put(2, new ArrayList<String>() {
+			{
+				add("中居　正広");
+			}
+		});
+		ListItems.put(3, new ArrayList<String>() {
+			{
+				add("稲垣　吾郎");
+			}
+		});
+		ListItems.put(4, new ArrayList<String>() {
+			{
+				add("草彅　剛");
+			}
+		});
+		ListItems.put(5, new ArrayList<String>() {
+			{
+				add("香取　慎吾");
+			}
+		});
+		return ListItems;
 	}
 
 }
