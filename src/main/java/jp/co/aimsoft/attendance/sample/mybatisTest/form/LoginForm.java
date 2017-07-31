@@ -20,6 +20,7 @@ public class LoginForm {
 		this.name = userName;
 	}
 
+	// 初期表示のために固定の0を返す→例）～の内容が表示される
 	public Integer getSyainName() {
 		return 0;
 	}
