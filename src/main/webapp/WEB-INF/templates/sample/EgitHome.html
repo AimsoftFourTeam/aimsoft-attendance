@@ -15,7 +15,7 @@
 	<form action="NameBook" method="POST">
 		<select name="syainName">
 			<option data-th-each="item : ${syainitems.keySet()}" 
-					data-th-text="${syainitems.get(item).get(0)}" 
+					data-th-text="${syainitems.get(__${item}__).get(0)}" 
 					data-th-value="${item}" 
 					data-th-selected="${item} == ${model.syainName}">
 			</option>

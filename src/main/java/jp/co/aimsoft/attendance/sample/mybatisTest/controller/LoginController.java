@@ -35,10 +35,10 @@ public class LoginController {
 		Map<Integer, ArrayList<String>> ListItems = new LinkedHashMap<Integer, ArrayList<String>>();
 
 		ArrayList<String> zero = new ArrayList<String>();
-		zero.add("");
-		zero.add("");
-		zero.add("");
-		zero.add("");
+		zero.add("例）エイム　太郎");
+		zero.add("例）1989年4月1日");
+		zero.add("例）営業部");
+		zero.add("例）本社");
 		ListItems.put(0, zero);
 
 		ListItems.put(1, new ArrayList<String>() {

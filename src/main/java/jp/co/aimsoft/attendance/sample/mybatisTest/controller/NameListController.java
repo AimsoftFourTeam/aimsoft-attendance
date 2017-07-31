@@ -27,7 +27,12 @@ public class NameListController {
 	private Map<Integer, ArrayList<String>> getListItems() {
 		Map<Integer, ArrayList<String>> ListItems = new LinkedHashMap<Integer, ArrayList<String>>();
 
-		ListItems.put(0, new ArrayList<String>());
+		ArrayList<String> zero = new ArrayList<String>();
+		zero.add("例）エイム　太郎");
+		zero.add("例）1989年4月1日");
+		zero.add("例）営業部");
+		zero.add("例）本社");
+		ListItems.put(0, zero);
 
 		ArrayList<String> kinura = new ArrayList<String>();
 		kinura.add("木村　拓哉");
