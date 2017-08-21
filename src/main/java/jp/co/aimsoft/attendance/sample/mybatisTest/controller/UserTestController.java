@@ -63,6 +63,7 @@ public class UserTestController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("form", new UserForm());
 		modelAndView.setViewName("sample/demo");
+
 		return modelAndView;
 	}
 

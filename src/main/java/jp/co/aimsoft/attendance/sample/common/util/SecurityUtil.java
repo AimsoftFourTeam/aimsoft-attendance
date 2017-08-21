@@ -1,4 +1,4 @@
-package jp.co.aimsoft.attendance.sample.common;
+package jp.co.aimsoft.attendance.sample.common.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

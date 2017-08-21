@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import jp.co.aimsoft.attendance.sample.common.SecurityUtil;
+import jp.co.aimsoft.attendance.sample.common.util.SecurityUtil;
 import jp.co.aimsoft.attendance.sample.mybatisTest.model.LoginModel;
 
 /**
