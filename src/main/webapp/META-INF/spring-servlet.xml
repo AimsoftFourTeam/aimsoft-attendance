@@ -16,6 +16,8 @@
 	<!-- Multipart対応 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+	<!-- ExceptionHandler -->
+	<bean class="jp.co.aimsoft.attendance.config.resolver.ExceptionHandler"/>
 	<mvc:annotation-driven>
 			<mvc:message-converters register-defaults="true">
 				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
