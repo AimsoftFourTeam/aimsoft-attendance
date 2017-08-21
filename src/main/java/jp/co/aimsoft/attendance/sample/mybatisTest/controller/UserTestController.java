@@ -64,8 +64,7 @@ public class UserTestController {
 		modelAndView.addObject("form", new UserForm());
 		modelAndView.setViewName("sample/demo");
 
-		throw new RuntimeException();
-		// return modelAndView;
+		return modelAndView;
 	}
 
 	/**
