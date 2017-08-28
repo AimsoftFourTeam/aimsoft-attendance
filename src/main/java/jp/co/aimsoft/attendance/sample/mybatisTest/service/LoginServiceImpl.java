@@ -10,7 +10,7 @@ import jp.co.aimsoft.attendance.sample.common.util.SecurityUtil;
 import jp.co.aimsoft.attendance.sample.mybatisTest.model.LoginModel;
 
 /**
- * ログイン画面業務ロジック.
+ * SecurityUtil性能調査.
  */
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -20,9 +20,9 @@ public class LoginServiceImpl implements LoginService {
 
 		LocalDateTime beforeTime = LocalDateTime.now();
 		// パスワードとソルトを取得。ともにDBに詰めるがいったんこのまま結果を返す。
-		Map<String, String> result = SecurityUtil.getHashedPasswordAndSalt(model.getPassword());
+		SecurityUtil.getHashedPassword(model.getUserId(),model.getPassword());
 		LocalDateTime afterTime = LocalDateTime.now();
-		this.setResultToLoginModel(model, result, beforeTime, afterTime);
+		this.setResultToLoginModel(model,beforeTime, afterTime);
 
 		return model;
 	}
@@ -30,20 +30,14 @@ public class LoginServiceImpl implements LoginService {
 	/**
 	 * LoginModelに処理結果を設定します。
 	 * 
-	 * @param model
-	 *            ログインモデル
-	 * @param map
-	 *            ハッシュ化されたパスワードとソルトを持つmap
+	 * @param model loginModel
 	 * @param before
 	 *            処理前の時間
 	 * @param after
 	 *            処理後の時間
 	 */
-	private void setResultToLoginModel(LoginModel model, Map<String, String> map, LocalDateTime before,
+	private void setResultToLoginModel(LoginModel model,LocalDateTime before,
 			LocalDateTime after) {
-
-		model.setPassword(map.get("password"));
-		model.setSalt(map.get("salt"));
 
 		// 処理時間測定
 		double beforeMs = before.getLong(ChronoField.MILLI_OF_SECOND);

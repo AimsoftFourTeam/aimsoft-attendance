@@ -1,7 +1,16 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.service;
 
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import jp.co.aimsoft.attendance.sample.common.util.SecurityUtil;
+import jp.co.aimsoft.attendance.sample.mybatisTest.dao.UserMapper;
+import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
+import jp.co.aimsoft.attendance.sample.mybatisTest.model.UserModel;
 
 /**
  * ユーザーロジック.
@@ -9,58 +18,83 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	// TODO DB環境が整ったのち復活させる
-	// @Autowired
-	// private UserMapper mapper;
-	//
-	// /** コンストラクタ. */
-	// public UserServiceImpl() {
-	//
-	// }
-	//
-	// /**
-	// * DBアクセスし、1件ユーザーを登録します。
-	// *
-	// * @param inputModel
-	// * ユーザーモデル.
-	// */
-	// @Transactional
-	// public void addUser(UserDto dto) {
-	// mapper.addUser(dto);
-	// }
-	//
-	// /**
-	// * 引数のユーザーIDを元に全件ユーザーを取得します。
-	// *
-	// * @param userId
-	// * ユーザーID
-	// * @return UserModel ユーザーモデル
-	// */
-	// @Transactional
-	// public List<UserDto> findAll() {
-	//
-	// List<UserDto> resultModel = mapper.findAll();
-	//
-	// return resultModel;
-	// }
-	//
-	// /**
-	// * ユーザーIDを元にユーザー情報を1件更新します。
-	// *
-	// * @param dto
-	// * ユーザーDTO
-	// */
-	// @Transactional
-	// public void updateOne(UserDto dto) {
-	// mapper.updateOne(dto);
-	// }
-	//
-	// /**
-	// * UserMaster全件削除します。
-	// */
-	// @Transactional
-	// public void deleteAll() {
-	// mapper.deleteAll();
-	// }
+
+	@Autowired
+	private UserMapper mapper;
+
+	/** コンストラクタ. */
+	public UserServiceImpl() {
+
+	}
+
+	/**
+	 * DBアクセスし、1件ユーザーを登録します。
+	 *
+	 * @param inputModel
+	 *            ユーザーモデル.
+	 */
+	@Transactional
+	public void addUser(UserModel model) {
+		
+		String password = SecurityUtil.getHashedPassword(model.getUserId(), model.getPassword());
+		UserDto dto = new UserDto();
+		BeanUtils.copyProperties(model, dto);
+		dto.setPassword(password);
+		mapper.addUser(dto);
+	}
+
+	/**
+	 * ユーザーを全件を取得します。
+	 *
+	 * @return UserModel ユーザーモデル
+	 */
+	@Transactional
+	public List<UserDto> findAll() {
+
+		List<UserDto> resultModel = mapper.findAll();
+
+		return resultModel;
+	}
+
+	/**
+	 * ユーザーIDを元にユーザー情報を1件更新します。
+	 *
+	 * @param dto
+	 *            ユーザーDTO
+	 */
+	@Transactional
+	public void updateOne(UserModel model) {
+		
+		UserDto dto = new UserDto();
+		BeanUtils.copyProperties(model, dto);
+		mapper.updateOne(dto);
+	}
+
+	/**
+	 * User_Master全件削除します。
+	 */
+	@Transactional
+	public void deleteAll() {
+		mapper.deleteAll();
+	}
+
+	/**
+	 * User_Masterを1件削除します。
+	 * 
+	 * @param userId
+	 */
+	public void deleteOne(String userId) {
+		mapper.deleteOne(userId);
+	}
+	
+	/**
+	 * UserIdをもとに対応するパスワードを取得します。
+	 * 
+	 * @param userId UserId
+	 */
+	public String getPassword(String userId){
+		UserDto dto = mapper.findOne(userId);
+		return dto != null ? dto.getPassword() : "";
+	}
 
 }

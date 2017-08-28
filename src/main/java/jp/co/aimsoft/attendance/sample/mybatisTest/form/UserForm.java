@@ -8,11 +8,14 @@ public class UserForm {
 	/** ユーザー名. */
 	private String userName;
 
-	/** ユーザーパスワード. */
-	private String userPassword;
+	/** 所属. */
+	private String department;
 
-	/** 保有有給休暇日数. */
-	private String numberOdaysPaidVacation;
+	/** 役職. */
+	private String position;
+
+	/** パスワード. */
+	private String password;
 
 	public String getUserId() {
 		return userId;
@@ -30,19 +33,27 @@ public class UserForm {
 		this.userName = userName;
 	}
 
-	public String getUserPassword() {
-		return userPassword;
+	public String getDepartment() {
+		return department;
 	}
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
-	public String getNumberOdaysPaidVacation() {
-		return numberOdaysPaidVacation;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setNumberOdaysPaidVacation(String numberOdaysPaidVacation) {
-		this.numberOdaysPaidVacation = numberOdaysPaidVacation;
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
