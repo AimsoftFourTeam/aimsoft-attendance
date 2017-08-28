@@ -3,14 +3,10 @@ package jp.co.aimsoft.attendance.sample.common.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-
-import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  * セキュリティ関連部品のユーティリティクラス.
@@ -20,14 +16,12 @@ public final class SecurityUtil {
 	/**
 	 * 平文のパスワードとソルトから安全なパスワードを生成し、返却します
 	 *
+	 * @param salt ソルトとする文字列
 	 * @param password
 	 *            平文のパスワード
-	 * @return ハッシュ化されたパスワードとソルトのマップ
+	 * @return ハッシュ化されたパスワード
 	 */
-	public static Map<String, String> getHashedPasswordAndSalt(String password) {
-
-		// ランダムな文字列を生成し、これをソルトとする。
-		String salt = RandomStringUtils.randomAlphabetic(10);
+	public static String getHashedPassword(final String salt, final String password) {
 
 		char[] passCharAry = password.toCharArray();
 		byte[] hashedSalt = createHashedSalt(salt);
@@ -62,11 +56,26 @@ public final class SecurityUtil {
 		}
 
 		String hashedPassword = sb.toString();
-		Map<String, String> passwordAndSalt = new HashMap<String, String>();
-		passwordAndSalt.put("password", hashedPassword);
-		passwordAndSalt.put("salt", salt);
 
-		return passwordAndSalt;
+		return hashedPassword;
+	}
+
+	/**
+	 * 入力値に基づき認証処理を行い結果を返却します。
+	 * 
+	 * @param account
+	 *            アカウント
+	 * @param inputPassword
+	 *            パスワード
+	 * @param registeredPassword
+	 *            登録済みパスワード
+	 * @return <code>true</code>:認証OK, <code>false</code>:認証NG
+	 */
+	public static boolean authenticate(final String account,final String inputPassword,final String registeredPassword) {
+
+		String hashedInputPassword = getHashedPassword(account, inputPassword);
+
+		return hashedInputPassword.equals(registeredPassword);
 	}
 
 	/**
@@ -76,7 +85,7 @@ public final class SecurityUtil {
 	 *            ソルト
 	 * @return ハッシュ化されたバイト配列のソルト
 	 */
-	private static byte[] createHashedSalt(String salt) {
+	private static byte[] createHashedSalt(final String salt) {
 
 		MessageDigest messageDigest;
 

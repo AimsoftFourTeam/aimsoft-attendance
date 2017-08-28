@@ -2,11 +2,11 @@ package jp.co.aimsoft.attendance.sample.mybatisTest.helper;
 
 import org.springframework.stereotype.Component;
 
-import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.form.UserForm;
+import jp.co.aimsoft.attendance.sample.mybatisTest.model.UserModel;
 
 /**
- * UserTestControllerのヘルパークラス. FIXME このクラスをヘルパーとして使用してよいか。他に適切なコンポーネントがないか。
+ * UserTestControllerのヘルパークラス.
  */
 @Component
 public class UserHelper {
@@ -18,13 +18,15 @@ public class UserHelper {
 
 	}
 
-	public UserDto createUserDto(UserForm form) {
+	public UserModel createUserDto(UserForm form) {
 
-		UserDto dto = new UserDto();
-		dto.setUserId(form.getUserId());
-		dto.setUserName(form.getUserName());
-		dto.setUserPassword(form.getUserPassword());
+		UserModel model = new UserModel();
+		model.setUserId(form.getUserId());
+		model.setUserName(form.getUserName());
+		model.setDepartment(form.getDepartment());
+		model.setPosition(form.getPosition());
+		model.setPassword(form.getPassword());
 
-		return dto;
+		return model;
 	}
 }

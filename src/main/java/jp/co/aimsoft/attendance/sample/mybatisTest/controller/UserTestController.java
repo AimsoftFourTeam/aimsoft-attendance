@@ -1,5 +1,7 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.co.aimsoft.attendance.sample.common.util.SecurityUtil;
+import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.form.UserForm;
 import jp.co.aimsoft.attendance.sample.mybatisTest.helper.UserHelper;
+import jp.co.aimsoft.attendance.sample.mybatisTest.model.UserModel;
 import jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService;
 import jp.co.aimsoft.attendance.sample.mybatisTest.validator.UserValidator;
 
@@ -91,10 +96,9 @@ public class UserTestController {
 			return modelAndView;
 		}
 
-		// TODO DB環境が整ったのち復活させる
-		// UserDto userDto = helper.createUserDto(form);
+		UserModel model = helper.createUserDto(form);
 
-		// userService.addUser(userDto);
+		userService.addUser(model);
 		modelAndView.setViewName("sample/demoResult");
 		return modelAndView;
 	}
@@ -110,9 +114,8 @@ public class UserTestController {
 	public ModelAndView mybatisTestGetAll() {
 
 		ModelAndView viewable = new ModelAndView();
-		// TODO DB環境が整ったのち復活させる
-		// List<UserDto> userDtoList = userService.findAll();
-		// viewable.addObject("userModelList", userDtoList);
+		List<UserDto> userDtoList = userService.findAll();
+		viewable.addObject("userModelList", userDtoList);
 		viewable.setViewName("sample/demoList");
 		return viewable;
 	}
@@ -139,10 +142,9 @@ public class UserTestController {
 			return modelAndView;
 		}
 
-		// TODO DB環境が整ったのち復活させる
-		// UserDto userDto = helper.createUserDto(form);
-		//
-		// userService.updateOne(userDto);
+		UserModel model = helper.createUserDto(form);
+
+		userService.updateOne(model);
 		modelAndView.setViewName("sample/demoResult");
 		return modelAndView;
 	}
@@ -155,9 +157,31 @@ public class UserTestController {
 	@RequestMapping(value = "/mybatis/delete", method = RequestMethod.POST)
 	public ModelAndView mybatisTestDeleteAll() {
 
-		// userService.deleteAll();
+		userService.deleteAll();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("sample/demoResult");
+		return modelAndView;
+	}
+	
+	/**
+	 * UserMaster全件削除します。
+	 * 
+	 * @return Response
+	 */
+	@RequestMapping(value = "/mybatis/authenticate", method = RequestMethod.POST)
+	public ModelAndView authenticate(@ModelAttribute UserForm form) {
+
+		// DB登録済みパスワードを取得
+		String registeredPassword = userService.getPassword(form.getUserId());
+		
+		boolean authenticateResult = SecurityUtil.authenticate(form.getUserId(), form.getPassword(), registeredPassword);
+
+		ModelAndView modelAndView = new ModelAndView();
+		if(authenticateResult){
+		modelAndView.setViewName("sample/demoResult");
+		} else {
+			modelAndView.setViewName("index");
+		}
 		return modelAndView;
 	}
 

@@ -6,25 +6,48 @@ Mapperの場所はどこでも良いが、javaファイルとセットで直す�
 <mapper namespace="jp.co.aimsoft.attendance.sample.mybatisTest.dao.UserMapper">
 
     <insert id="addUser" parameterType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
-        INSERT INTO usermaster (
+        INSERT INTO user_master (
           user_id,
           user_name,
-          user_password
+          department,
+          position,
+          password
         )
         VALUES (
           #{userId},
           #{userName},
-          #{userPassword}
+          #{department},
+          #{position},
+          #{password}
         )
     </insert>
     <update id="updateOne" parameterType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
-		UPDATE usermaster
+		UPDATE user_master
 			<set>
 				user_id=#{userId},
 				user_name=#{userName},
-				user_password=#{userPassword}
+				department=#{department},
+				position=#{position},
+				password=#{password}
 			</set>
 		WHERE user_id=#{userId}
 	</update>
-
+	<select id="findOne" parameterType="String" resultType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
+        SELECT 
+          user_id,
+          user_name,
+          department,
+          position,
+          password
+        FROM
+          user_master
+        WHERE
+          user_id = #{userId}
+    </select>
+	<delete id="deleteOne" parameterType="String">
+        DELETE FROM
+          user_master
+        WHERE
+          user_id = #{userId}
+    </delete>
 </mapper>
