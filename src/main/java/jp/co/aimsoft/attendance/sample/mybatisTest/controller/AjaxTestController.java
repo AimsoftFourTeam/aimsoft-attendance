@@ -16,18 +16,17 @@ public class AjaxTestController {
 	public AjaxTestController() {
 
 	}
-	
+
 	/**
 	 * 初期表示.
 	 * 
-	 * @return　response
+	 * @return response
 	 */
-	@RequestMapping(value = "/ajaxTest/display", method = RequestMethod.POST)
-	public ModelAndView display(){
-		
+	@RequestMapping(value = "/ajaxTest/display", method = RequestMethod.GET)
+	public ModelAndView display() {
+
 		ModelAndView mav = new ModelAndView("sample/ajaxTest");
 		return mav;
 	}
-
 
 }

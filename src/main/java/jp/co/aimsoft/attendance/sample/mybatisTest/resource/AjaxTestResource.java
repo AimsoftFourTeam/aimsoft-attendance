@@ -52,7 +52,7 @@ public class AjaxTestResource {
 
 		String resultJson = null;
 		try {
-			resultJson = mapper.writeValueAsString(model);
+			resultJson = mapper.writeValueAsString(resultModel);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

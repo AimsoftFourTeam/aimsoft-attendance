@@ -1,5 +1,8 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserModel {
 	/** ユーザーID. */
 	private String userId;
