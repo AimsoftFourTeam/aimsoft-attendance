@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserModel {
+
 	/** ユーザーID. */
 	private String userId;
 
@@ -58,4 +59,9 @@ public class UserModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public UserModel() {
+
+	}
+
 }
