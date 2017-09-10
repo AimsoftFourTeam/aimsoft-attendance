@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>初期画面</title>
+</head>
+<body>
+  <div>
+    <form class="main-form" method="POST">
+      <p class="ajaxLoading"></p>
+      <p>ユーザーID：<input type="text" id="userId" class="userId" name="userId" /></p>
+      <input type="button" class="searchAjax" value="ユーザーID検索" />
+      <p>ユーザー名；<input type="text" id="userName" class="userName" name="userName" /></p>
+      <p>職位：<input type="text" id="position" class="position" name="position" /></p>
+      <p>所属グループ：<input type="text" id="department" class="department" name="department" /></p>
+    </form>
+  </div>
+  <script type="text/javascript" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" data-th-src="@{/js/sample/mybatisTest/ajaxTest.js}"></script>
+</body>
+
+</html>

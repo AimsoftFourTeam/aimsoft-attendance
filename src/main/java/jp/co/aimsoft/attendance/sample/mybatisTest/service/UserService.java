@@ -38,12 +38,21 @@ public interface UserService {
 	 * @see jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService#deleteOne()
 	 */
 	void deleteOne(String userId);
-	
+
 	/**
-	 * @param userId userId
+	 * @param userId
+	 *            userId
 	 * 
 	 * @see jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService#getPassword(String)
 	 */
 	String getPassword(String userId);
+
+	/**
+	 * @param UserModel
+	 *            model
+	 * 
+	 * @see jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService#getUserByUserId(UserModel)
+	 */
+	UserModel getUserByUserId(UserModel model);
 
 }

@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Transactional
 	public void addUser(UserModel model) {
-		
+
 		String password = SecurityUtil.getHashedPassword(model.getUserId(), model.getPassword());
 		UserDto dto = new UserDto();
 		BeanUtils.copyProperties(model, dto);
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Transactional
 	public void updateOne(UserModel model) {
-		
+
 		UserDto dto = new UserDto();
 		BeanUtils.copyProperties(model, dto);
 		mapper.updateOne(dto);
@@ -83,18 +83,36 @@ public class UserServiceImpl implements UserService {
 	 * 
 	 * @param userId
 	 */
+	@Transactional
 	public void deleteOne(String userId) {
 		mapper.deleteOne(userId);
 	}
-	
+
 	/**
 	 * UserIdをもとに対応するパスワードを取得します。
 	 * 
-	 * @param userId UserId
+	 * @param userId
+	 *            UserId
 	 */
-	public String getPassword(String userId){
+	@Transactional
+	public String getPassword(String userId) {
 		UserDto dto = mapper.findOne(userId);
 		return dto != null ? dto.getPassword() : "";
+	}
+
+	/**
+	 * UserIdをもとに対応するユーザー情報を取得します。
+	 * 
+	 * @param model
+	 *            ユーザーモデル.
+	 * @return UserModel
+	 */
+	@Transactional
+	public UserModel getUserByUserId(UserModel model) {
+
+		UserDto dto = mapper.findOne(model.getUserId());
+		BeanUtils.copyProperties(dto, model);
+		return model;
 	}
 
 }
