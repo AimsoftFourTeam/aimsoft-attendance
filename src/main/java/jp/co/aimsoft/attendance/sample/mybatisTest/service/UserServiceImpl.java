@@ -1,6 +1,9 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.service;
 
+import java.io.StringReader;
 import java.util.List;
+
+import javax.xml.bind.JAXB;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import jp.co.aimsoft.attendance.sample.common.util.SecurityUtil;
 import jp.co.aimsoft.attendance.sample.mybatisTest.dao.UserMapper;
 import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.model.UserModel;
+import jp.co.aimsoft.attendance.stub.model.SampleStubDtos;
 
 /**
  * ユーザーロジック.
@@ -113,6 +117,12 @@ public class UserServiceImpl implements UserService {
 		UserDto dto = mapper.findOne(model.getUserId());
 		BeanUtils.copyProperties(dto, model);
 		return model;
+	}
+
+	public SampleStubDtos getSampleStub() {
+
+		SampleStubDtos dtos = JAXB.unmarshal(new StringReader("/stub/xml/sampleStubXxx"), SampleStubDtos.class);
+		return dtos;
 	}
 
 }

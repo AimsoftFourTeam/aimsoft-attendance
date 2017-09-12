@@ -65,6 +65,8 @@ public class UserTestController {
 	@RequestMapping(value = "/mybatis/display", method = RequestMethod.GET)
 	public ModelAndView mybatisTestFirstDisplay() {
 
+		userService.getSampleStub();
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("form", new UserForm());
 		modelAndView.setViewName("sample/demo");
@@ -162,7 +164,7 @@ public class UserTestController {
 		modelAndView.setViewName("sample/demoResult");
 		return modelAndView;
 	}
-	
+
 	/**
 	 * UserMaster全件削除します。
 	 * 
@@ -173,12 +175,13 @@ public class UserTestController {
 
 		// DB登録済みパスワードを取得
 		String registeredPassword = userService.getPassword(form.getUserId());
-		
-		boolean authenticateResult = SecurityUtil.authenticate(form.getUserId(), form.getPassword(), registeredPassword);
+
+		boolean authenticateResult = SecurityUtil.authenticate(form.getUserId(), form.getPassword(),
+				registeredPassword);
 
 		ModelAndView modelAndView = new ModelAndView();
-		if(authenticateResult){
-		modelAndView.setViewName("sample/demoResult");
+		if (authenticateResult) {
+			modelAndView.setViewName("sample/demoResult");
 		} else {
 			modelAndView.setViewName("index");
 		}
