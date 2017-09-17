@@ -4,7 +4,6 @@ import java.util.List;
 
 import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.model.UserModel;
-import jp.co.aimsoft.attendance.stub.model.SampleStubDtos;
 
 public interface UserService {
 
@@ -55,7 +54,5 @@ public interface UserService {
 	 * @see jp.co.aimsoft.attendance.sample.mybatisTest.service.UserService#getUserByUserId(UserModel)
 	 */
 	UserModel getUserByUserId(UserModel model);
-
-	SampleStubDtos getSampleStub();
 
 }

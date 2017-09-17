@@ -65,8 +65,6 @@ public class UserTestController {
 	@RequestMapping(value = "/mybatis/display", method = RequestMethod.GET)
 	public ModelAndView mybatisTestFirstDisplay() {
 
-		userService.getSampleStub();
-
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("form", new UserForm());
 		modelAndView.setViewName("sample/demo");
