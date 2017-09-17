@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sampleStubDtos>
+  <sampleStubDto>
+    <userName>テストユーザー01</userName>
+    <position>役員</position>
+    <department>社内管理</department>
+  </sampleStubDto>
+  <sampleStubDto>
+    <userName>テストユーザー02</userName>
+    <position>マネージャー</position>
+    <department>第四グループ</department>
+  </sampleStubDto>
+</sampleStubDtos>

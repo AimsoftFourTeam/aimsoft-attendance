@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>初期画面</title>
+</head>
+<body>
+  <div data-th-each="_list : ${dtos.sampleStubDtoList}">
+    <p data-th-text="'要素' + ${_listStat.count}">
+    <p>ユーザー名：<span data-th-text="${_list.userName}"></span></p>
+    <p>部署名：<span data-th-text="${_list.department}"></span></p>
+    <p>職位：<span data-th-text="${_list.position}"></span></p>
+    <p>--------------------------------------------------------</p>
+  </div>
+</body>
+
+</html>
