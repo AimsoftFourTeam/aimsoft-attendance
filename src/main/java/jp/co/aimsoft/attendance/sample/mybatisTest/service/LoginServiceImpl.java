@@ -2,7 +2,6 @@ package jp.co.aimsoft.attendance.sample.mybatisTest.service;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
-import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -19,10 +18,9 @@ public class LoginServiceImpl implements LoginService {
 	public LoginModel allowLogin(LoginModel model) {
 
 		LocalDateTime beforeTime = LocalDateTime.now();
-		// パスワードとソルトを取得。ともにDBに詰めるがいったんこのまま結果を返す。
-		SecurityUtil.getHashedPassword(model.getUserId(),model.getPassword());
+		SecurityUtil.getHashedPassword(model.getUserId(), model.getPassword());
 		LocalDateTime afterTime = LocalDateTime.now();
-		this.setResultToLoginModel(model,beforeTime, afterTime);
+		this.setResultToLoginModel(model, beforeTime, afterTime);
 
 		return model;
 	}
@@ -30,14 +28,14 @@ public class LoginServiceImpl implements LoginService {
 	/**
 	 * LoginModelに処理結果を設定します。
 	 * 
-	 * @param model loginModel
+	 * @param model
+	 *            loginModel
 	 * @param before
 	 *            処理前の時間
 	 * @param after
 	 *            処理後の時間
 	 */
-	private void setResultToLoginModel(LoginModel model,LocalDateTime before,
-			LocalDateTime after) {
+	private void setResultToLoginModel(LoginModel model, LocalDateTime before, LocalDateTime after) {
 
 		// 処理時間測定
 		double beforeMs = before.getLong(ChronoField.MILLI_OF_SECOND);
