@@ -14,6 +14,9 @@ public class LoginModel {
 	/** ソルト. */
 	private String salt;
 
+	/** 処理結果. */
+	private boolean isOk;
+
 	/** デフォルトコンストラクタ. */
 	public LoginModel() {
 
@@ -49,6 +52,14 @@ public class LoginModel {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public boolean isOk() {
+		return isOk;
+	}
+
+	public void setOk(boolean result) {
+		this.isOk = result;
 	}
 
 }

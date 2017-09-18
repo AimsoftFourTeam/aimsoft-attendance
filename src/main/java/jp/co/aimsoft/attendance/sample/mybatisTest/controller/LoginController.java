@@ -40,13 +40,19 @@ public class LoginController {
 
 		LoginModel model = new LoginModel();
 		BeanUtils.copyProperties(form, model);
-		LoginModel resultModel = loginService.allowLogin(model);
-		LoginResultForm nextForm = new LoginResultForm();
-		BeanUtils.copyProperties(resultModel, nextForm);
+		LoginModel resultModel = loginService.authenticate(model);
 
 		ModelAndView view = new ModelAndView();
-		view.addObject("form", nextForm);
-		view.setViewName("sample/loginResult");
+		if (resultModel.isOk()) {
+
+			LoginResultForm nextForm = new LoginResultForm();
+			BeanUtils.copyProperties(resultModel, nextForm);
+
+			view.addObject("form", nextForm);
+			view.setViewName("sample/loginResult");
+		} else {
+			view.setViewName("sample/login");
+		}
 
 		return view;
 	}

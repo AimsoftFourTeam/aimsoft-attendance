@@ -11,23 +11,12 @@ public class LoginResultForm {
 	/** 処理時間. */
 	private double processTime;
 
-	/** ソルト. */
-	private String salt;
-
 	public double getProcessTime() {
 		return processTime;
 	}
 
 	public void setProcessTime(double processTime) {
 		this.processTime = processTime;
-	}
-
-	public String getSalt() {
-		return salt;
-	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
 	}
 
 	/** デフォルトコンストラクタ. */
