@@ -4,5 +4,5 @@ import jp.co.aimsoft.attendance.sample.mybatisTest.model.LoginModel;
 
 public interface LoginService {
 
-	LoginModel allowLogin(LoginModel model);
+	LoginModel authenticate(LoginModel model);
 }
