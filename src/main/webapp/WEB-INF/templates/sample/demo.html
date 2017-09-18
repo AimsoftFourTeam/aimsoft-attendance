@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>初期画面</title>
+</head>
+<body>
+  <div data-th-object="${form}">
+    <form method="POST">
+      <p>ユーザーID：<input type="text" name="userId" data-th-value="${form.userId}" /><span data-th-if="${#fields.hasErrors('userId')}" data-th-errors="*{userId}"></span></p>
+      <p>ユーザー名：<input type="text" name="userName" data-th-value="${form.userName}" /></p>
+      <p>パスワード：<input type="text" id="testField" name="password" data-th-value="${form.password}" /></p>
+      <p>職位：<input type="text" name="position" data-th-value="${form.position}" /></p>
+      <p>所属：<input type="text" name="department" data-th-value="${form.department}" /></p>
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/add}" value="登録" />
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/update}" value="更新" />
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/authenticate}" value="認証" />
+    </form>
+    <form method="POST">
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/select}" value="参照" />
+    </form>
+    <form method="POST">
+      <input type="button" class="submitButton" data-th-data-action="@{/iwai/mybatis/delete}" value="削除" />
+    </form>
+    <a href="http://localhost:8080/aimsoft-attendance/">testリンク</a>
+    <a href="http://localhost:8080/aimsoft-attendance/">testリンク2</a>
+  </div>
+  <script type="text/javascript" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
+  <script type="text/javascript" data-th-src="@{/js/sample/common/submit.js}"></script>
+  <script type="text/javascript" data-th-src="@{/js/sample/mybatisTest/mybatisTest.js}"></script>
+</body>
+
+</html>
