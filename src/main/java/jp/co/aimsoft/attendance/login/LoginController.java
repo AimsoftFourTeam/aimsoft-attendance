@@ -16,6 +16,6 @@ public class LoginController {
 
 	@RequestMapping(value = "/Menue", method = RequestMethod.POST)
 	public String LoginMenu() {
-		return "次画面へ遷移成功";
+		return "999";
 	}
 }
