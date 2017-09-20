@@ -19,11 +19,13 @@
 	<!-- ExceptionHandler -->
 	<bean class="jp.co.aimsoft.attendance.config.resolver.ExceptionHandler"/>
 	<mvc:annotation-driven>
-			<mvc:message-converters register-defaults="true">
-				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-					<property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
-					<property name="writeAcceptCharset" value="false" />
-				</bean>
-			</mvc:message-converters>
-		</mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+				<property name="writeAcceptCharset" value="false" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- SessionScopedBean:アノテーションを使用しない場合、ここで設定も可能 -->
+	<!-- <bean id="sessionBeanSample" class="jp.co.aimsoft.attendance.sample.mybatisTest.model.SessionBeanSample" scope="session"/> -->
 </beans>

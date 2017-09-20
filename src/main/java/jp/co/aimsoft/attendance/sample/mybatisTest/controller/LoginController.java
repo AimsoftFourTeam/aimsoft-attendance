@@ -23,7 +23,7 @@ public class LoginController {
 	/**
 	 * ログイン画面を表示します。
 	 *
-	 * @return
+	 * @return response
 	 */
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public String show() {
