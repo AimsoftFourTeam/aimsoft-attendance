@@ -3,13 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<link type="text/css" rel="stylesheet" href="../../../lib/tapsuggest/css/Login.css" />
+    <script type="text/javascript" data-th-src="@{/js/sample/common/submit.js}"></script>
+    <script type="text/javascript" data-th-src="@{/js/sample/login/login.js}"></script>
 	<title>エイム・ソフト勤怠管理システム</title>
 </head>
 <body>
 	<h1>エイム・ソフト勤怠管理システム</h1>
-	<form action="Menue" method="POST">
-	 	<p>ID : <input type="text" name="userId" class="input"></p>
-	 	<p>名前 : <input type="text" name="userName" class="input"></p>
+	<form method="POST">
+	 	<p>ID : <input type="text" name="userId" class="input" id="userId"></p>
+	 	<p>名前 : <input type="text" name="userName" class="input" id="userPass"></p>
 	 	<input type="submit" value="ログイン" class="btn">
 	</form>
 

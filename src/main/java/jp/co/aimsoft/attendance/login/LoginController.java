@@ -15,7 +15,7 @@ public class LoginController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/Menue", method = RequestMethod.POST)
+	@RequestMapping(value = "/Menu", method = RequestMethod.POST)
 	public ModelAndView LoginMenu(@ModelAttribute LoginForm form) {
 		ModelAndView LoginMenu = new ModelAndView();
 		LoginMenu.setViewName("sample/Menu");
