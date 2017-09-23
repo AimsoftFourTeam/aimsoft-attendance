@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>index</title>
+</head>
+<body>
+  <p>500エラー例外ハンドリング画面</p>
+  <div data-th-if="${message != null}">
+    <p>スタックトレース：<span data-th-text="${message}"></span></p>
+  </div>
+</body>
+</html>
