@@ -44,15 +44,22 @@
             		};
 
 
-            //json形式サンプル
-            $.ajax({
+            //共通ファイルに移動する。
+            var jsonPostConfig = {
                 type: 'POST',
-                url: '/aimsoft-attendance/getDataFortapSuggestLib1',
-                data: JSON.stringify(jsonString),
+                url: 'url',
         		contentType: 'application/json',//これが無いとうまくいかない・・・
         		datatype: 'json',
-        		scriptCharset: 'utf-8'
-            }).done(function (data) {
+        		scriptCharset: 'utf-8',
+				data: ""
+            }
+
+            //json形式サンプル
+            $.ajax($.extend(jsonPostConfig, {
+                url: '/aimsoft-attendance/getDataFortapSuggestLib1',
+                data: JSON.stringify(jsonString)
+            	})
+            ).done(function (data) {
                 console.log(data);
             });
 
