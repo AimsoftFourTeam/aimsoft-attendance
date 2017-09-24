@@ -4,23 +4,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import jp.co.aimsoft.attendance.sample.suggest.model.LoginParameter;
 import jp.co.aimsoft.attendance.sample.suggest.model.UserNameKeyAssist;
 
-@Controller
+@RestController
 public class SampleController {
 
 	/**
 	 * 初期表示.
-	 * 
+	 *
 	 * @return response
 	 */
 	@RequestMapping("/tapsuggestSample")
@@ -36,10 +38,9 @@ public class SampleController {
 	 * tapsuggestのデータを返すだけのテスト<br/>
 	 * ajaxテスト用 色々やり方があるから迷っている<br/>
 	 * あとでControllerの単位とかは考える。
-	 * 
+	 *
 	 * @return response
 	 */
-	@ResponseBody
 	@RequestMapping(value = "/getDataFortapSuggestLib", method = RequestMethod.POST)
 	public List<UserNameKeyAssist> getJsonDataFortapSuggestLib() {
 
@@ -50,7 +51,7 @@ public class SampleController {
 	 * tapsuggestのデータを返すだけのテスト<br/>
 	 * ajaxテスト用 色々やり方があるから迷っている<br/>
 	 * あとでControllerの単位とかは考える。
-	 * 
+	 *
 	 * @return response
 	 */
 	@ResponseBody
@@ -64,12 +65,11 @@ public class SampleController {
 	 * tapsuggestのデータを返すだけのテスト<br/>
 	 * ajaxテスト用 色々やり方があるから迷っている<br/>
 	 * あとでControllerの単位とかは考える。
-	 * 
+	 *
 	 * @return response
 	 */
-	@ResponseBody
 	@RequestMapping(value = "/getDataFortapSuggestLib1", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	public String getJsonDataFortapSuggestLib1() {
+	public String getJsonDataFortapSuggestLib1(@RequestBody LoginParameter loginParameter) {
 		ObjectMapper mapper = new ObjectMapper();
 		// produces="text/plain;charset=utf-8"については、Springの設定ファイルで解消できるはず。
 		String jsonString = null;

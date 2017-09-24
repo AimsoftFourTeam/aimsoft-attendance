@@ -39,10 +39,19 @@
 
             });
 
+            var jsonString = {
+            		"loginId":"testLoginId4214213"
+            		};
+
+
             //json形式サンプル
             $.ajax({
                 type: 'POST',
                 url: '/aimsoft-attendance/getDataFortapSuggestLib1',
+                data: JSON.stringify(jsonString),
+        		contentType: 'application/json',//これが無いとうまくいかない・・・
+        		datatype: 'json',
+        		scriptCharset: 'utf-8'
             }).done(function (data) {
                 console.log(data);
             });
@@ -63,6 +72,7 @@
             $.ajax({
                 type: 'POST',
                 url: '/aimsoft-attendance/rest/getDataFortapSuggestLib2',
+
             }).done(function (data) {
                 //dataが取れる  ところまで確認。
                 console.log("rest/getDataFortapSuggestLib2: " + data);
