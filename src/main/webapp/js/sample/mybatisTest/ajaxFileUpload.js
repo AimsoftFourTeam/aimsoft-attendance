@@ -3,7 +3,7 @@ function callbackReplacer(key, value) {
   return formattedString;
 }
 
-$(".upload-file").click(
+$(".searchAjax").click(
   function(event) {
     event.preventDefault();
 
@@ -16,11 +16,15 @@ $(".upload-file").click(
 
     var json = JSON.stringify(param);
 
+    $(".userName").val("ロード中");
+    $(".position").val("ロード中");
+    $(".department").val("ロード中");
+
     $.ajax({
       url: '/aimsoft-attendance/iwai/ajaxTest/search',
       type: 'POST',
       cache: false,
-      data: text,
+      data: json,
       scriptCharset: 'utf-8',
       contentType: 'application/json',
       dataType: 'json',
