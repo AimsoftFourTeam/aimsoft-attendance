@@ -1,5 +1,8 @@
 package jp.co.aimsoft.attendance.sample.mybatisTest.form;
 
+import java.lang.reflect.Field;
+import java.util.stream.Stream;
+
 public class UserForm {
 
 	/** ユーザーID. */
@@ -55,5 +58,32 @@ public class UserForm {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+
+		Field[] fields = this.getClass().getDeclaredFields();
+//		fields.stream().
+		Stream.of(fields).forEach(field -> this.setItemPropeties(sb, field));
+
+		return sb.toString();
+	}
+
+	protected void setItemPropeties(StringBuilder sb, Field field) {
+
+		// TODO 今は、Nestされたクラスについては未対応。
+
+		try {
+			field.setAccessible(true);
+			sb.append(field.getName());
+			sb.append(":");
+			sb.append(field.get(this));
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			// 何もしない
+		} finally {
+			sb.append(",");
+		}
 	}
 }

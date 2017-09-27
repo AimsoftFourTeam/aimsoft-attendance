@@ -48,7 +48,7 @@ public class UserTestController {
 	 * formにValidatorをバインドする。<br />
 	 * InitBinder内の指定値は、各Controllerメソッドが画面入力値を受け取る<br />
 	 * formクラスの変数名とする必要がある。
-	 * 
+	 *
 	 * @param binder
 	 *            binder
 	 */
@@ -122,7 +122,7 @@ public class UserTestController {
 
 	/**
 	 * ユーザーIDを元にUserMasterを１件更新します。
-	 * 
+	 *
 	 * @param form
 	 *            form
 	 * @param result
@@ -151,7 +151,7 @@ public class UserTestController {
 
 	/**
 	 * UserMaster全件削除します。
-	 * 
+	 *
 	 * @return Response
 	 */
 	@RequestMapping(value = "/mybatis/delete", method = RequestMethod.POST)
@@ -165,7 +165,7 @@ public class UserTestController {
 
 	/**
 	 * UserMaster全件削除します。
-	 * 
+	 *
 	 * @return Response
 	 */
 	@RequestMapping(value = "/mybatis/authenticate", method = RequestMethod.POST)
