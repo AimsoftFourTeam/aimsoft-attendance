@@ -60,6 +60,12 @@ public class UserModel {
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "UserModel [userId=" + userId + ", userName=" + userName + ", department=" + department + ", position="
+				+ position + ", password=" + password + "]";
+	}
+
 	public UserModel() {
 
 	}

@@ -16,6 +16,8 @@
 	<context:annotation-config />
 	<!-- DI Setting -->
 	<context:component-scan base-package="jp.co.aimsoft.attendance.*" />
+	<!-- AOP setting -->
+	<aop:aspectj-autoproxy />
 
 	<!-- 宣言的トランザクションの織り込み -->
 </beans>

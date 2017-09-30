@@ -1,4 +1,4 @@
-package jp.co.aimsoft.attendance.sample.mybatisTest.service;
+package jp.co.aimsoft.attendance.sample.mybatisTest.service.impl;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
@@ -10,6 +10,7 @@ import jp.co.aimsoft.attendance.sample.common.util.SecurityUtil;
 import jp.co.aimsoft.attendance.sample.mybatisTest.dao.UserMapper;
 import jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto;
 import jp.co.aimsoft.attendance.sample.mybatisTest.model.LoginModel;
+import jp.co.aimsoft.attendance.sample.mybatisTest.service.LoginService;
 
 /**
  * SecurityUtil性能調査.
