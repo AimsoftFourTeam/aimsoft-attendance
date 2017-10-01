@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -29,6 +31,8 @@ import jp.co.aimsoft.attendance.sample.mybatisTest.validator.UserValidator;
 @RequestMapping("iwai")
 public class UserTestController {
 
+	private static final Logger logger = LogManager.getLogger(UserTestController.class);
+
 	/** ユーザーロジック. */
 	@Autowired
 	private UserService userService;
@@ -38,6 +42,8 @@ public class UserTestController {
 
 	@Autowired
 	private UserValidator userValidator;
+
+
 
 	/** コンストラクタ. */
 	public UserTestController() {
@@ -64,6 +70,8 @@ public class UserTestController {
 	 */
 	@RequestMapping(value = "/mybatis/display", method = RequestMethod.GET)
 	public ModelAndView mybatisTestFirstDisplay() {
+
+		logger.info("log4j2 logging test.");
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("form", new UserForm());
