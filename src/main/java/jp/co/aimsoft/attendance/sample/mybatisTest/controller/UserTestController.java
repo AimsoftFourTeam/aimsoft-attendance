@@ -171,6 +171,13 @@ public class UserTestController {
 		return modelAndView;
 	}
 
+
+	private String getJson(List<Error> errors) {
+
+		//ここでメッセージを生成して・・・・
+//		errors.stream().map(xxx)
+		return "";
+	}
 	/**
 	 * UserMaster全件削除します。
 	 *
