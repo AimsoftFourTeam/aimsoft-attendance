@@ -17,4 +17,9 @@ public class SessionBeanSample {
 		this.testField = testField;
 	}
 
+	@Override
+	public String toString() {
+		return "SessionBeanSample [testField=" + testField + "]";
+	}
+
 }

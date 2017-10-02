@@ -62,4 +62,10 @@ public class LoginModel {
 		this.isOk = result;
 	}
 
+	@Override
+	public String toString() {
+		return "LoginModel [userId=" + userId + ", password=" + password + ", processTime=" + processTime + ", salt="
+				+ salt + ", isOk=" + isOk + "]";
+	}
+
 }

@@ -18,7 +18,7 @@ public class SampleAspect {
 	static final Logger logger = LoggerFactory.getLogger(SampleAspect.class);
 
 	@Around("within(jp.co.aimsoft.attendance.sample.mybatisTest.service.impl.*)")
-	public void around(ProceedingJoinPoint pjp) throws Throwable {
+	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 
 		List<Object> args = Arrays.asList(pjp.getArgs());
 		args.forEach(arg -> arg.toString());
@@ -26,6 +26,8 @@ public class SampleAspect {
 		logger.info("method start :" + pjp.getSignature().getDeclaringType().getSimpleName() + "#"
 				+ pjp.getSignature().getName() + " | params : " + StringUtils.join(args, ", "));
 
-		pjp.proceed();
+		Object ret = pjp.proceed();
+
+		return ret;
 	}
 }
