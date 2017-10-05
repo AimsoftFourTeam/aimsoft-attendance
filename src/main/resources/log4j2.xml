@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration status="OFF">
+	<Properties>
+		<Property name="standard">[%d{yyyy/MM/dd HH:mm:ss.SSS}] %m%n</Property>
+		<Property name="business">[%d{yyyy/MM/dd HH:mm:ss.SSS}] %m%n</Property>
+	</Properties>
+	<Appenders>
+        <Console
+        	name="console"
+        	target="SYSTEM_OUT">
+            <PatternLayout pattern="${standard}" />
+        </Console>
+        <RollingFile
+        	name="app"
+        	fileName="app.log"
+        	filePattern="app\_%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${business}" />
+	        <Policies>
+	            <OnStartupTriggeringPolicy />
+	            <SizeBasedTriggeringPolicy size="2 MB" />
+	            <TimeBasedTriggeringPolicy />
+	        </Policies>
+	        <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+        <RollingFile
+        	name="sql"
+        	fileName="sql.log"
+        	filePattern="sql\_%d{yyyy-MM-dd}.%i.log.gz">
+            <PatternLayout pattern="${business}" />
+	        <Policies>
+	            <OnStartupTriggeringPolicy />
+	            <SizeBasedTriggeringPolicy size="2 MB" />
+	            <TimeBasedTriggeringPolicy />
+	        </Policies>
+	        <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+	</Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="console"/>
+        </Root>
+        <Logger name="***.***.***" level="debug" additivity="false">
+            <AppenderRef ref="app" />
+        </Logger>
+        <Logger name="java.sql" level="debug" additivity="false">
+            <AppenderRef ref="sql" />
+        </Logger>
+        <Logger name="com.ibatis" level="debug" additivity="false">
+            <AppenderRef ref="sql" />
+        </Logger>
+    </Loggers>
+</configuration>
