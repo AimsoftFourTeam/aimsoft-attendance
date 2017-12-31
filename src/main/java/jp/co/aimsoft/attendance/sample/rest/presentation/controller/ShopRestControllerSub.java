@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -16,8 +17,8 @@ import jp.co.aimsoft.attendance.sample.rest.logic.service.ShopService;
 import jp.co.aimsoft.attendance.sample.rest.presentation.form.ShopForm;
 
 @RestController
-@RequestMapping("api/shop")
-public class ShopRestController {
+@RequestMapping("api/shopSub")
+public class ShopRestControllerSub {
 
 	@Autowired
 	private ShopService service;
@@ -35,17 +36,17 @@ public class ShopRestController {
 	@ResponseStatus(HttpStatus.OK)
 	public ShopModel getShop(@PathVariable String shopId) {
 
+		System.out.println("SubModule");
 		ShopModel model = service.getShop(shopId);
 		return model;
 	}
 
-	@RequestMapping(method = RequestMethod.POST, headers = {
-			"X-HTTP-Method-Override=PUT" }, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void update(@PathVariable String json) {
+	public void update(@RequestBody ShopForm form) {
 
 		ShopModel model = new ShopModel();
-		// BeanUtils.copyProperties(form, model);
+		BeanUtils.copyProperties(form, model);
 		service.update(model);
 	}
 
