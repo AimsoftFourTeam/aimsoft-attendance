@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 @Configuration
-@MapperScan("jp.co.aimsoft.attendance.sample.mybatisTest.dao")
+@MapperScan("jp.co.aimsoft.attendance.*")
 public class AppConfig {
 
 	@Bean

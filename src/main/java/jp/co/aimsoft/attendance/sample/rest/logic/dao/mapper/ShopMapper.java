@@ -4,9 +4,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import jp.co.aimsoft.attendance.sample.rest.logic.dao.domain.ShopDto;
 
-/**
- * 店舗情報マッパー.
- */
 @Mapper
 public interface ShopMapper {
 

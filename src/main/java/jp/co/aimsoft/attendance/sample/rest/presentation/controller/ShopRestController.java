@@ -3,6 +3,8 @@ package jp.co.aimsoft.attendance.sample.rest.presentation.controller;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +23,9 @@ public class ShopRestController {
 	@Autowired
 	private ShopService service;
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void createOne(@RequestBody ShopForm form) {
+	public void createOne(@ModelAttribute ShopForm form) {
 
 		ShopModel model = new ShopModel();
 		BeanUtils.copyProperties(form, model);
