@@ -1,5 +1,8 @@
 package jp.co.aimsoft.attendance.sample.rest.logic.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ShopModel {
 
 	private String shopId;
